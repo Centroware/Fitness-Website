@@ -21,25 +21,7 @@ function App() {
           path="/"
           render={() => (
             <Page>
-              <Home />
-            </Page>
-          )}
-        />
-        <Route
-          exact
-          path="/features"
-          render={() => (
-            <Page>
               <Features />
-            </Page>
-          )}
-        />
-        <Route
-          exact
-          path="/pricing"
-          render={() => (
-            <Page>
-              <Pricing />
             </Page>
           )}
         />
@@ -53,6 +35,44 @@ function App() {
           )}
         />
         <Route
+          exact
+          path="/lifestyle"
+          render={() => (
+            <Page>
+              <Lifestyle />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/article"
+          render={() => (
+            <Page>
+              <Article />
+            </Page>
+          )}
+        />
+
+        {/* 
+        <Route
+          exact
+          path="/features"
+          render={() => (
+            <Page>
+              <Features />
+            </Page>
+          )}
+        /> 
+         <Route
+          exact
+          path="/pricing"
+          render={() => (
+            <Page>
+              <Pricing />
+            </Page>
+          )}
+        /> 
+         <Route
           exact
           path="/class01"
           render={() => (
@@ -88,24 +108,7 @@ function App() {
             </Page>
           )}
         />
-        <Route
-          exact
-          path="/lifestyle"
-          render={() => (
-            <Page>
-              <Lifestyle />
-            </Page>
-          )}
-        />
-        <Route
-          exact
-          path="/article"
-          render={() => (
-            <Page>
-              <Article />
-            </Page>
-          )}
-        />
+          */}
       </Switch>
     </Router>
   );

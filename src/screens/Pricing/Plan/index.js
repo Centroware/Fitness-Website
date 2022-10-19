@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import cn from "classnames";
 import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
+import { Link } from "react-router-dom";
 
 const options = [
   {
@@ -207,16 +208,18 @@ const Plan = () => {
                       </div>
                     ))}
                   </div>
-                  <button
-                    className={cn(
-                      { button: index === 0 },
-                      { button: index === 1 },
-                      { "button-stroke": index === 2 },
-                      styles.button
-                    )}
-                  >
-                    {type.button}
-                  </button>
+                  <Link to="/download">
+                    <button
+                      className={cn(
+                        { button: index === 0 },
+                        { button: index === 1 },
+                        { "button-stroke": index === 2 },
+                        styles.button
+                      )}
+                    >
+                      {type.button}
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}

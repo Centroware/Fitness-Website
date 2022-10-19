@@ -20,13 +20,13 @@ const Features = () => {
       <Hero scrollToRef={scrollToRef} />
       <Intro scrollToRef={scrollToRef} />
       <ValueProps className="section-pb" />
-      <Program />
-      <About />
+      {/* <Program /> */}
+      {/* <About /> */}
       <Review className="section-pb64" />
       <Clients />
-      <Workouts />
-      <Lifestyle />
-      <Advantages />
+      {/* <Workouts /> */}
+      {/* <Lifestyle /> */}
+      {/* <Advantages /> */}
       <Offer className="section" />
     </>
   );

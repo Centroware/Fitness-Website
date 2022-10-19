@@ -12,18 +12,18 @@ const menu = [
     title: "Lifestyle",
     url: "/lifestyle",
   },
-  {
-    title: "Pricing",
-    url: "/pricing",
-  },
-  {
-    title: "Class",
-    url: "/class01",
-  },
-  {
-    title: "Features",
-    url: "/features",
-  },
+  // {
+  //   title: "Pricing",
+  //   url: "/pricing",
+  // },
+  // {
+  //   title: "Class",
+  //   url: "/class01",
+  // },
+  // {
+  //   title: "Features",
+  //   url: "/features",
+  // },
   {
     title: "Download",
     url: "/download",

@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./Platform.module.sass";
 import Icon from "../../../components/Icon";
 import ScrollParallax from "../../../components/ScrollParallax";
+import { Link } from "react-router-dom";
 
 const items = [
   {
@@ -87,11 +88,13 @@ const Platform = () => {
             </ScrollParallax>
           ))}
         </div>
-        <div className={styles.btns}>
-          <button className={cn("button-stroke", styles.button)}>
-            See the plan
-          </button>
-        </div>
+        <Link to="/pricing">
+          <div className={styles.btns}>
+            <button className={cn("button-stroke", styles.button)}>
+              See the plan
+            </button>
+          </div>
+        </Link>
       </div>
     </div>
   );
