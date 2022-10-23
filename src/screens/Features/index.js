@@ -9,6 +9,7 @@ import Review from "../../components/Review";
 import Clients from "../../components/Clients";
 import Workouts from "../../components/Workouts";
 import Advantages from "../../components/Advantages";
+import Blog from "../../components/Blog";
 import Offer from "../../components/Offer";
 import Lifestyle from "./Lifestyle";
 
@@ -18,7 +19,8 @@ const Features = () => {
   return (
     <>
       <Hero scrollToRef={scrollToRef} />
-      <Intro scrollToRef={scrollToRef} />
+      <Blog scrollToRef={scrollToRef} />
+      <Intro />
       <ValueProps className="section-pb" />
       {/* <Program /> */}
       {/* <About /> */}

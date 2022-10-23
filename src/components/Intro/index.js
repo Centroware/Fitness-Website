@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import styles from "./Intro.module.sass";
 import ScrollParallax from "../ScrollParallax";
 
-const Intro = ({ scrollToRef }) => {
+const Intro = () => {
   return (
-    <div className={styles.section} ref={scrollToRef}>
+    <div className={styles.section} >
       <div className={cn("container", styles.container)}>
         <div className={styles.gallery}>
           <ScrollParallax className={styles.preview} animateIn="fadeInUp">

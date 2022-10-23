@@ -18,7 +18,7 @@ const Post = () => {
         <div className={styles.row}>
           <div className={styles.col}>
             <div className={styles.preview}>
-              <img src="/images/content/history-pic.png" alt="People" />
+              <img src="/images/content/diet-food.jpg" alt="diet" />
             </div>
           </div>
           <div className={styles.col}>
@@ -29,7 +29,7 @@ const Post = () => {
               production-ready library of stackable content blocks built in
               React Native.{" "}
             </div>
-            <div className={styles.preview}>
+            {/* <div className={styles.preview}>
               <img src="/images/content/post-pic.png" alt="Post pic" />
             </div>
             <div className={styles.content}>
@@ -44,7 +44,7 @@ const Post = () => {
                 your favorite landing page layouts or hit the ground running
                 with 10 pre-built templates, all in light or dark mode."
               </p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

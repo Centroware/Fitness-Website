@@ -11,6 +11,7 @@ import Class02 from "./screens/Class02";
 import Class02Details from "./screens/Class02Details";
 import Lifestyle from "./screens/Lifestyle";
 import Article from "./screens/Article";
+import SingleArticle from "./screens/Article/SingleArticle";
 
 function App() {
   return (
@@ -49,6 +50,15 @@ function App() {
           render={() => (
             <Page>
               <Article />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/article/:slug"
+          render={() => (
+            <Page>
+              <SingleArticle />
             </Page>
           )}
         />
