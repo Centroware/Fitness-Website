@@ -160,7 +160,7 @@ const Headers = () => {
         >
           <Image
             className={styles.pic}
-            src="/images/logo-dark.svg"
+            src="/images/logo-miran.png"
             srcDark="/images/logo-light.svg"
             alt="Fitness Pro"
           />

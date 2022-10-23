@@ -44,7 +44,7 @@ const Hero = ({ scrollToRef }) => {
             <Image
               srcSet="/images/content/main-pic@2x.png 2x"
               srcSetDark="/images/content/main-pic-dark@2x.png 2x"
-              src="/images/content/main-pic.png"
+              src="/images/content/main-miran.png"
               srcDark="/images/content/main-pic-dark.png"
               alt="Main"
             />
@@ -56,7 +56,7 @@ const Hero = ({ scrollToRef }) => {
           >
             <img
               srcSet="/images/content/ball@2x.png 2x"
-              src="/images/content/ball.png"
+              src="/images/content/dumble.png"
               alt="Ball"
             />
           </ScrollParallax>
