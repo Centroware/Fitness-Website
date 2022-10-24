@@ -161,7 +161,7 @@ const Headers = () => {
           <Image
             className={styles.pic}
             src="/images/logo-miran.png"
-            srcDark="/images/logo-light.svg"
+            srcDark="/images/logo-miran.png"
             alt="Fitness Pro"
           />
         </Link>

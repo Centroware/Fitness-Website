@@ -18,7 +18,7 @@ const Hero = ({ scrollToRef }) => {
             Simple fitness experience for everyone.
           </h1>
           <div className={styles.text}>
-            Track your workouts, get better results, and be the bestversion of
+            Track your workouts, get better results, and be the best version of
             you. Less thinking, more lifting.
           </div>
           <div className={styles.btns}>
@@ -42,10 +42,10 @@ const Hero = ({ scrollToRef }) => {
         <div className={styles.gallery}>
           <div className={styles.preview}>
             <Image
-              srcSet="/images/content/main-pic@2x.png 2x"
-              srcSetDark="/images/content/main-pic-dark@2x.png 2x"
+              srcSet="/images/content/main-miran.png"
+              srcSetDark="/images/content/main-miran.png"
               src="/images/content/main-miran.png"
-              srcDark="/images/content/main-pic-dark.png"
+              srcDark="/images/content/main-miran.png"
               alt="Main"
             />
           </div>
