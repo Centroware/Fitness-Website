@@ -10,7 +10,7 @@ const Page = ({ children }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    clearAllBodyScrollLocks();
+    // clearAllBodyScrollLocks();
   }, [pathname]);
 
   return (

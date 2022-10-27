@@ -55,8 +55,8 @@ const Hero = ({ scrollToRef }) => {
             delay={300}
           >
             <img
-              srcSet="/images/content/dumble.png"
-              src="/images/content/dumble.png"
+              srcSet="/images/content/dumbbell.png"
+              src="/images/content/dumbbell.png"
               alt="Dumble"
             />
           </ScrollParallax>
@@ -66,8 +66,8 @@ const Hero = ({ scrollToRef }) => {
             delay={600}
           >
             <img
-              srcSet="/images/content/ball-black.png"
-              src="/images/content/ball-black.png"
+              srcSet="/images/content/apple@2x.png"
+              src="/images/content/apple@2x.png"
               alt="Ball"
             />
           </ScrollParallax>

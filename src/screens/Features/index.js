@@ -19,16 +19,15 @@ const Features = () => {
   return (
     <>
       <Hero scrollToRef={scrollToRef} />
-      <Blog scrollToRef={scrollToRef} />
+      {/* <Blog scrollToRef={scrollToRef} /> */}
       <Intro />
-      <ValueProps className="section-pb" />
       {/* <Program /> */}
       {/* <About /> */}
-      <Review className="section-pb64" />
-      <Clients />
+      {/* <Review className="section-pb64" /> */}
+      {/* <Clients /> */}
       {/* <Workouts /> */}
       {/* <Lifestyle /> */}
-      {/* <Advantages /> */}
+      <Advantages />
       <Offer className="section" />
     </>
   );

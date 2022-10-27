@@ -10,7 +10,7 @@ const items = [
     title: "Stories From Our Community: Kohaku & Moyo Shiro",
     content:
       "Track your workouts, get better results, and be the best version of you. Less thinking",
-    image: "url('/images/content/history-pic.png')",
+    image: "url('/images/content/history-pic-2.png')",
     status: "pink",
     statusContent: "new",
   },
@@ -19,7 +19,7 @@ const items = [
     title: "Stories From Our Community: Kohaku & Moyo Shiro",
     content:
       "Track your workouts, get better results, and be the best version of you. Less thinking",
-    image: "url('/images/content/history-pic.png')",
+    image: "url('/images/content/history-pic-2.png')",
     status: "green",
     statusContent: "yoga",
   },
@@ -28,7 +28,7 @@ const items = [
     title: "Stories From Our Community: Kohaku & Moyo Shiro",
     content:
       "Track your workouts, get better results, and be the best version of you. Less thinking",
-    image: "url('/images/content/history-pic.png')",
+    image: "url('/images/content/history-pic-2.png')",
     status: "pink",
     statusContent: "new",
   },
@@ -37,7 +37,7 @@ const items = [
     title: "Stories From Our Community: Kohaku & Moyo Shiro",
     content:
       "Track your workouts, get better results, and be the best version of you. Less thinking",
-    image: "url('/images/content/history-pic.png')",
+    image: "url('/images/content/history-pic-2.png')",
     status: "green",
     statusContent: "yoga",
   },

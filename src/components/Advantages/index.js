@@ -5,17 +5,17 @@ import ScrollParallax from "../ScrollParallax";
 
 const items = [
   {
-    title: "Intuitive and clean design",
+    title: "Free Plan For Everyone",
     image: "/images/content/hand-grip-circle.png",
     image2x: "/images/content/hand-grip-circle@2x.png",
   },
   {
-    title: "Track your progress easily",
+    title: "Free gym exercise library",
     image: "/images/content/gloves-circle.png",
     image2x: "/images/content/gloves-circle@2x.png",
   },
   {
-    title: "Syncs with Apple Health",
+    title: "Free healthy food library",
     image: "/images/content/bottle-circle.png",
     image2x: "/images/content/bottle-circle@2x.png",
   },
@@ -27,12 +27,10 @@ const Advantages = () => {
       <div className={cn("container", styles.container)}>
         <div className={styles.head}>
           <div className={cn("h2", styles.title)}>
-            For any space, at any pace
+            Discover Our New Featuers
           </div>
           <div className={styles.info}>
-            From the comfort of your living room to a hotel room across the
-            globe, we put the best classes at your fingertips. No WiFi? Download
-            videos offline for a practice that moves with you.
+            From the comfort of your living room to a hotel room across the globe, we put the best classes at your fingertips. No WiFi? Download videos offline for a practice that moves with you.
           </div>
         </div>
         <div className={styles.list}>
