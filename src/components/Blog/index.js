@@ -188,12 +188,12 @@ const items = [
     },
 ];
 
-const Blog = ({ scrollToRef, mainPage }) => {
+const Blog = ({ mainPage }) => {
     const [activeIndex, setActiveIndex] = useState(0);
     return (
         <div className={cn("container", {
             [styles.hero]: mainPage === true
-        })} ref={scrollToRef}>
+        })}>
             <div>
                 <div className={styles.nav}>
                     {items.map((x, index) => (

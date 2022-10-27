@@ -21,8 +21,8 @@ const Features = () => {
   return (
     <>
       <Hero scrollToRef={scrollToRef} />
-      {/* <Blog scrollToRef={scrollToRef} /> */}
-      <Advantages />
+      {/* <Blog/> */}
+      <Advantages scrollToRef={scrollToRef} />
       <Intro />
       {/* <Program /> */}
       {/* <About /> */}

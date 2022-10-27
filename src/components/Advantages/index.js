@@ -21,9 +21,9 @@ const items = [
   },
 ];
 
-const Advantages = () => {
+const Advantages = ({ scrollToRef }) => {
   return (
-    <div className={cn("section-bg", styles.section)}>
+    <div ref={scrollToRef} className={cn("section-bg", styles.section)}>
       <div className={cn("container", styles.container)}>
         <div className={styles.head}>
           <div className={cn("h2", styles.title)}>
