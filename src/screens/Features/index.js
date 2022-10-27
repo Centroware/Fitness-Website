@@ -12,6 +12,8 @@ import Advantages from "../../components/Advantages";
 import Blog from "../../components/Blog";
 import Offer from "../../components/Offer";
 import Lifestyle from "./Lifestyle";
+import Faq from "./Faq";
+import Plan from "./Plan";
 
 const Features = () => {
   const scrollToRef = useRef(null);
@@ -20,6 +22,7 @@ const Features = () => {
     <>
       <Hero scrollToRef={scrollToRef} />
       {/* <Blog scrollToRef={scrollToRef} /> */}
+      <Advantages />
       <Intro />
       {/* <Program /> */}
       {/* <About /> */}
@@ -27,7 +30,8 @@ const Features = () => {
       {/* <Clients /> */}
       {/* <Workouts /> */}
       {/* <Lifestyle /> */}
-      <Advantages />
+      <Plan />
+      <Faq />
       <Offer className="section" />
     </>
   );

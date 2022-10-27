@@ -65,6 +65,15 @@ function App() {
           )}
         />
 
+        <Route
+          exact
+          path="/pricing"
+          render={() => (
+            <Page>
+              <Pricing />
+            </Page>
+          )}
+        />
         {/* 
         <Route
           exact
@@ -75,15 +84,7 @@ function App() {
             </Page>
           )}
         /> 
-         <Route
-          exact
-          path="/pricing"
-          render={() => (
-            <Page>
-              <Pricing />
-            </Page>
-          )}
-        /> 
+        
          <Route
           exact
           path="/class01"

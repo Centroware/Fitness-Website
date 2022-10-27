@@ -1,0 +1,230 @@
+import React, { useState } from "react";
+import cn from "classnames";
+import styles from "./Plan.module.sass";
+import Icon from "../../../components/Icon";
+import { Link } from "react-router-dom";
+
+const options = [
+  {
+    title: "Main features",
+    items: [
+      {
+        title: "Time-Trackers",
+        description: "Some Text",
+      },
+      {
+        title: "Exclusive Music",
+        description: "Some Text",
+      },
+      {
+        title: "E-books",
+        description: "Some Text",
+      },
+      {
+        title: "Documents",
+        description: "Some Text",
+      },
+      {
+        title: "Premium Tutorial",
+        description: "Some Text",
+      },
+      {
+        title: "Client Support",
+        description: "Some Text",
+      },
+      {
+        title: "Premium Courses",
+        description: "Some Text",
+      },
+      {
+        title: "User support",
+        description: "Some Text",
+      },
+      {
+        title: "Chat to trainers",
+        description: "Some Text",
+      },
+      {
+        title: "Unlimited Videos",
+        description: "Some Text",
+      },
+    ],
+  },
+];
+
+const data = [
+  {
+    title: "Free",
+    color: "#23262F",
+    description: "14 days of free trial",
+    price: "0",
+    note: "per month",
+    button: "Get Started",
+    options: [
+      "true",
+      "true",
+      "true",
+      "false",
+      "true",
+      "true",
+      "false",
+      "false",
+      "false",
+      "false",
+    ],
+  },
+  {
+    title: "Prime",
+    tag: "POPULAR",
+    color: "#23262F",
+    description: "Fit with everyone",
+    price: "29",
+    note: "per month",
+    button: "Get Started",
+    options: [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "false",
+      "false",
+    ],
+  },
+  {
+    title: "Prime+",
+    color: "#23262F",
+    description: "Are you pro? Let’s do it",
+    price: "99",
+    note: "per month",
+    button: "Get Started",
+    options: [
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+      "true",
+    ],
+  },
+];
+
+const Plan = () => {
+  const [plan, setPlan] = useState(0);
+  const [more, setMore] = useState([false, false, false]);
+
+  const handleClick = (index) => {
+    let newMore = [...more];
+    newMore[index] = !more[index];
+
+    setMore(newMore);
+  };
+
+  const renderContent = (content) => {
+    if (content === "true") {
+      return <Icon className={styles.check} name="check" size="14" />;
+    }
+    if (content === "false") {
+      return <div className={styles.minus}>×</div>;
+    }
+    return <div className={styles.minus}>{content}</div>;
+  };
+
+  return (
+    <div className={cn("section-bg", styles.section)}>
+      <div className={cn("container", styles.container)}>
+        <div className={cn("stage", styles.stage)}>
+          Choose the plan that’s right for you
+        </div>
+        <h1 className={cn(styles.title)}>
+          Miran make the beautiful digital products & experiences
+        </h1>
+
+        <div className={styles.btns}>
+          <div className={styles.selector}>
+            <button
+              onClick={() => setPlan(0)}
+              className={cn({ [styles.planButtonActive]: plan == 0 }, styles.planButton)}
+            >
+              One month
+            </button>
+            <button
+              onClick={() => setPlan(1)}
+              className={cn({ [styles.planButtonActive]: plan == 1 }, styles.planButton)}
+            >
+              Three months
+            </button>
+          </div>
+        </div>
+        <div className={styles.table}>
+          <div className={styles.row}>
+            {data.map((type, index) => (
+              <div className={styles.col} key={index}>
+                <div className={styles.head}>
+                  <div className={styles.package} style={{ color: type.color }}>
+                    <h3> {type.title} {type.tag ? <span className={styles.tag}>{type.tag}</span> : null}</h3>
+                  </div>
+                  <div className={styles.description}>{type.description}</div>
+                  <div className={styles.divider}></div>
+                  {type.price && (
+                    <>
+                      <div className={styles.cost}>
+                        <span className={styles.sign}>$</span>{" "}
+                        <span className={styles.price}>{type.price}<span className={styles.usd}> USD</span></span>
+                      </div>
+                      <div className={styles.note}>{type.note}</div>
+                    </>
+                  )}
+                </div>
+                <div className={styles.body}>
+                  <div
+                    className={cn(styles.more, {
+                      [styles.active]: more[index],
+                    })}
+                    onClick={() => handleClick(index)}
+                  >
+                    See all features
+                    <Icon name="arrow-bottom" size="9" />
+                  </div>
+
+                  <div
+                    className={cn(styles.list, {
+                      [styles.visible]: more[index],
+                    })}
+                  >
+                    {options.map((option, optionIndex) => (
+                      <div className={styles.item} key={optionIndex}>
+                        {option.items.map((item, itemIndex) => (
+                          <div className={styles.parameter} key={itemIndex}>
+                            {renderContent(type.options[itemIndex])}
+                            <div className={styles.label}>{item.title}</div>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                  <Link to="/download">
+                    <button
+                      className={cn("button", styles.button)}
+                    >
+                      {type.button}
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Plan;
