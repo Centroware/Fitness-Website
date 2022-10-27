@@ -12,10 +12,12 @@ import Class02Details from "./screens/Class02Details";
 import Lifestyle from "./screens/Lifestyle";
 import Article from "./screens/Article";
 import SingleArticle from "./screens/Article/SingleArticle";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 function App() {
   return (
     <Router>
+      {/* <ErrorBoundary> */}
       <Switch>
         <Route
           exact
@@ -120,6 +122,7 @@ function App() {
         />
           */}
       </Switch>
+      {/* </ErrorBoundary> */}
     </Router>
   );
 }
