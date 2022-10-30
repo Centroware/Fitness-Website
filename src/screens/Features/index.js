@@ -27,7 +27,7 @@ const Features = () => {
       <Intro />
       <Steps />
       {/* <Program /> */}
-      {/* <About /> */}
+      <About />
       {/* <Review className="section-pb64" /> */}
       {/* <Clients /> */}
       {/* <Workouts /> */}

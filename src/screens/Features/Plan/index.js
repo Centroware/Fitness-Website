@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
 import { Link } from "react-router-dom";
+import { API_URL, PROXY_SERVER_URL } from "../../../config";
 
 const options = [
   {
@@ -57,11 +58,11 @@ const Plan = () => {
   const [plan, setPlan] = useState(0);
   const [more, setMore] = useState([false, false, false]);
   const [plans, setPlans] = useState({});
-  console.log(plans);
+
   useEffect(() => {
     async function getPlans() {
       try {
-        const req = await fetch("https://cors-anywhere.herokuapp.com/testing.miranapp.com/api/v1/miran-plan/plan-price", {
+        const req = await fetch(`https://${API_URL}/miran-plan/plan-price`, {
           method: "get",
           headers: {
             "Content-Type": "application/json",

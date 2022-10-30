@@ -1,37 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import cn from "classnames";
 import styles from "./About.module.sass";
 import Image from "../../../components/Image";
 import ScrollParallax from "../../../components/ScrollParallax";
+import { getContent } from "../../../helpers.js";
 
-const items = [
-  {
-    title: "Intuitive and clean design",
-    content:
-      "Track your workouts, get better results, and be the best version of you.",
-    color: "#9757D7",
-  },
-  {
-    title: "An exercise in simplicity",
-    content:
-      "Track your workouts, get better results, and be the best version of you.",
-    color: "#EF466F",
-  },
-  {
-    title: "The most popular workouts",
-    content:
-      "Track your workouts, get better results, and be the best version of you.",
-    color: "#45B26B",
-  },
-];
 
 const About = () => {
+  const [content, setContent] = useState("");
+
+  useEffect(() => {
+    async function getAboutContent() {
+      try {
+        const content = await getContent("about-miran");
+        setContent(content);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getAboutContent();
+  }, []);
+
+  const items = [
+    {
+      title: "About Miran",
+      content,
+      color: "#9757D7",
+    }
+  ];
   return (
     <div className={cn("section", styles.book)}>
       <div className={cn("container", styles.container)}>
         <div className={styles.row}>
           <div className={styles.col}>
-            <div className={cn("stage", styles.stage)}>fitness pro</div>
+            <div className={cn("stage", styles.stage)}>Miran</div>
           </div>
           <div className={styles.col}>
             <h2 className={cn("h2", styles.title)}>
@@ -52,7 +54,7 @@ const About = () => {
                     className={styles.number}
                     style={{ backgroundColor: x.color }}
                   >
-                    0{index + 1}
+                    00
                   </div>
                   <div className={styles.subtitle}>{x.title}</div>
                   <div className={styles.content}>{x.content}</div>

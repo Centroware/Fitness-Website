@@ -119,20 +119,20 @@ const navLinks = [
 ];
 
 const socials = [
-  {
-    title: "facebook",
-    size: "16",
-    url: "https://www.facebook.com/ui8.net/",
-  },
+  // {
+  //   title: "facebook",
+  //   size: "16",
+  //   url: "https://www.facebook.com/ui8.net/",
+  // },
   {
     title: "twitter",
     size: "18",
-    url: "https://twitter.com/ui8",
+    url: "https://twitter.com/miranapp",
   },
   {
     title: "instagram",
     size: "16",
-    url: "https://www.instagram.com/ui8net/",
+    url: "https://www.instagram.com/miranapp/",
   },
 ];
 
