@@ -57,14 +57,14 @@ const Plan = () => {
   const [plan, setPlan] = useState(0);
   const [more, setMore] = useState([false, false, false]);
   const [plans, setPlans] = useState({});
-
+  console.log(plans);
   useEffect(() => {
     async function getPlans() {
       try {
-        const req = await fetch("https://testing.miranapp.com/api/v1/miran-plan/plan-price", {
+        const req = await fetch("https://cors-anywhere.herokuapp.com/testing.miranapp.com/api/v1/miran-plan/plan-price", {
           method: "get",
           headers: {
-            "accept": "application/json",
+            "Content-Type": "application/json",
             "Authorization": "Token 072c30a0dd1d04ee6379a3d00ea45a59ec0e0ee3",
             "App-version": "2.2.9"
           }
@@ -220,8 +220,8 @@ const Plan = () => {
                   {type.price && (
                     <>
                       <div className={styles.cost}>
-                        <span className={styles.sign}>$</span>{" "}
-                        <span className={styles.price}>{type.price}<span className={styles.usd}> USD</span></span>
+                        <span className={styles.sign}>SR</span>{" "}
+                        <span className={styles.price}>{type.price}<span className={styles.usd}> SAR</span></span>
                       </div>
                       <div className={styles.note}>{type.note}</div>
                     </>
