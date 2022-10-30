@@ -12,6 +12,10 @@ const menu = [
     title: "Lifestyle",
     url: "/lifestyle",
   },
+  {
+    title: "Privacy",
+    url: "/privacy",
+  },
   // {
   //   title: "Pricing",
   //   url: "/pricing",

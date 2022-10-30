@@ -3,6 +3,7 @@ import cn from "classnames";
 import styles from "./Community.module.sass";
 import Subscription from "../Subscription";
 import Image from "../Image";
+import { Link } from "react-router-dom";
 
 const Community = () => {
   return (
@@ -31,7 +32,7 @@ const Community = () => {
         />
         <div className={styles.note}>
           By click sign in you, you agree with Stacks <a href="/#">terms</a> and{" "}
-          <a href="/#">policy</a>
+          <Link to="/privacy">policy</Link>
         </div>
       </div>
     </div>

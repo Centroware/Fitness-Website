@@ -112,6 +112,10 @@ const navLinks = [
     title: "Lifestyle",
     url: "/lifestyle",
   },
+  {
+    title: "Privacy",
+    url: "/privacy",
+  },
 ];
 
 const socials = [

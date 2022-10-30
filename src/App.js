@@ -13,6 +13,7 @@ import Lifestyle from "./screens/Lifestyle";
 import Article from "./screens/Article";
 import SingleArticle from "./screens/Article/SingleArticle";
 import ErrorBoundary from "./components/ErrorBoundary";
+import Privacy from "./screens/Privacy";
 
 function App() {
   return (
@@ -71,6 +72,16 @@ function App() {
           render={() => (
             <Page>
               <Pricing />
+            </Page>
+          )}
+        />
+
+        <Route
+          exact
+          path="/privacy"
+          render={() => (
+            <Page>
+              <Privacy />
             </Page>
           )}
         />

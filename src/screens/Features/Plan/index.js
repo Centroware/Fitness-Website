@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
@@ -52,73 +52,117 @@ const options = [
   },
 ];
 
-const data = [
-  {
-    title: "Free",
-    color: "#23262F",
-    description: "14 days of free trial",
-    price: "0",
-    note: "per month",
-    button: "Get Started",
-    options: [
-      "true",
-      "true",
-      "true",
-      "false",
-      "true",
-      "true",
-      "false",
-      "false",
-      "false",
-      "false",
-    ],
-  },
-  {
-    title: "Prime",
-    tag: "POPULAR",
-    color: "#23262F",
-    description: "Fit with everyone",
-    price: "29",
-    note: "per month",
-    button: "Get Started",
-    options: [
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "false",
-      "false",
-    ],
-  },
-  {
-    title: "Prime+",
-    color: "#23262F",
-    description: "Are you pro? Let’s do it",
-    price: "99",
-    note: "per month",
-    button: "Get Started",
-    options: [
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-      "true",
-    ],
-  },
-];
 
 const Plan = () => {
   const [plan, setPlan] = useState(0);
   const [more, setMore] = useState([false, false, false]);
+  const [plans, setPlans] = useState([]);
+
+  useEffect(() => {
+    async function getPlans() {
+      try {
+        const req = await fetch("https://testing.miranapp.com/api/v1/miran-plan/plan-price", {
+          method: "get",
+          headers: {
+            "accept": "application/json",
+            "Authorization": "Token 072c30a0dd1d04ee6379a3d00ea45a59ec0e0ee3",
+            "App-version": "2.2.9"
+          }
+        });
+        const res = await req.json();
+
+        const plans = {};
+        if (res.status) {
+          res.result.forEach(p => {
+            if (!p.prime_trainer_included && p.period === "1")
+              plans["1monthPrime"] = {
+                price: p.price
+              };
+            else if (!p.prime_trainer_included && p.period === "3")
+              plans["3monthPrime"] = {
+                price: p.price
+              };
+            else if (p.prime_trainer_included && p.period === "1")
+              plans["1monthPrime+"] = {
+                price: p.price
+              };
+            else if (p.prime_trainer_included && p.period === "3")
+              plans["3monthPrime+"] = {
+                price: p.price
+              };
+          });
+          setPlans(plans);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getPlans();
+  }, []);
+
+  const data = [
+    {
+      title: "Free",
+      color: "#23262F",
+      description: "14 days of free trial",
+      price: "0",
+      note: plan === 0 ? "per month" : "per 3 months",
+      button: "Get Started",
+      options: [
+        "true",
+        "true",
+        "true",
+        "false",
+        "true",
+        "true",
+        "false",
+        "false",
+        "false",
+        "false",
+      ],
+    },
+    {
+      title: "Prime",
+      tag: "POPULAR",
+      color: "#23262F",
+      description: "Fit with everyone",
+      price: plan === 0 ? plans["1monthPrime"].price : plans["3monthPrime"].price,
+      note: plan === 0 ? "per month" : "per 3 months",
+      button: "Get Started",
+      options: [
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "false",
+        "false",
+      ],
+    },
+    {
+      title: "Prime+",
+      color: "#23262F",
+      description: "Are you pro? Let’s do it",
+      price: plan === 0 ? plans["1monthPrime+"].price : plans["3monthPrime+"].price,
+      note: plan === 0 ? "per month" : "per 3 months",
+      button: "Get Started",
+      options: [
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+        "true",
+      ],
+    },
+  ];
 
   const handleClick = (index) => {
     let newMore = [...more];

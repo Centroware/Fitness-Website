@@ -195,8 +195,7 @@ const Hero = () => {
       <div className={cn("container", styles.container)}>
         <h2 className={cn("hero", styles.title)}>Lifestyle</h2>
         <div className={styles.info}>
-          Track your workouts, get better results, and be the best version of
-          you. Less thinking, more lifting.
+          A new fitness experience for everyone
         </div>
         <History />
         <div className={styles.nav}>
