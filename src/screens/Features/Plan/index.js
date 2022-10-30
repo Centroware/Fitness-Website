@@ -56,7 +56,7 @@ const options = [
 const Plan = () => {
   const [plan, setPlan] = useState(0);
   const [more, setMore] = useState([false, false, false]);
-  const [plans, setPlans] = useState([]);
+  const [plans, setPlans] = useState({});
 
   useEffect(() => {
     async function getPlans() {
@@ -126,7 +126,7 @@ const Plan = () => {
       tag: "POPULAR",
       color: "#23262F",
       description: "Fit with everyone",
-      price: plan === 0 ? plans["1monthPrime"].price : plans["3monthPrime"].price,
+      price: plan === 0 ? plans["1monthPrime"]?.price : plans["3monthPrime"]?.price,
       note: plan === 0 ? "per month" : "per 3 months",
       button: "Get Started",
       options: [
@@ -146,7 +146,7 @@ const Plan = () => {
       title: "Prime+",
       color: "#23262F",
       description: "Are you pro? Let’s do it",
-      price: plan === 0 ? plans["1monthPrime+"].price : plans["3monthPrime+"].price,
+      price: plan === 0 ? plans["1monthPrime+"]?.price : plans["3monthPrime+"]?.price,
       note: plan === 0 ? "per month" : "per 3 months",
       button: "Get Started",
       options: [
