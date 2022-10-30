@@ -14,6 +14,7 @@ import Offer from "../../components/Offer";
 import Lifestyle from "./Lifestyle";
 import Faq from "./Faq";
 import Plan from "./Plan";
+import Steps from "./Steps";
 
 const Features = () => {
   const scrollToRef = useRef(null);
@@ -22,8 +23,9 @@ const Features = () => {
     <>
       <Hero scrollToRef={scrollToRef} />
       {/* <Blog/> */}
-      <Advantages scrollToRef={scrollToRef} />
+      <Advantages scrollToRef={scrollToRef} className="section-pb64" />
       <Intro />
+      <Steps />
       {/* <Program /> */}
       {/* <About /> */}
       {/* <Review className="section-pb64" /> */}
