@@ -64,7 +64,7 @@ const Plan = () => {
   useEffect(() => {
     async function getPlans() {
       try {
-        const req = await fetch(`https://${API_URL}/miran-plan/plan-price`, {
+        const req = await fetch(`${PROXY_SERVER_URL}/${API_URL}/miran-plan/plan-price`, {
           method: "get",
           headers: {
             "Content-Type": "application/json",
