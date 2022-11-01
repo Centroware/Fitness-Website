@@ -1,7 +1,7 @@
 import { API_URL, PROXY_SERVER_URL } from "./config";
 
 export async function getContent(collection) {
-    const req = await fetch(`https://${API_URL}/collection/${collection}`, {
+    const req = await fetch(`${PROXY_SERVER_URL}/${API_URL}/collection/${collection}`, {
         method: "get",
         headers: {
             "Content-Type": "application/json",

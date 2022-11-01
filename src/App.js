@@ -20,76 +20,76 @@ function App() {
   const { i18n } = useTranslation();
 
   return (
-    <div style={{ direction: i18n.resolvedLanguage === "ar" ? "rtl" : "ltr" }}>
-      <Router>
-        {/* <ErrorBoundary> */}
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <Page>
-                <Features />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/download"
-            render={() => (
-              <Page>
-                <Download />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/lifestyle"
-            render={() => (
-              <Page>
-                <Lifestyle />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/article"
-            render={() => (
-              <Page>
-                <Article />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/article/:slug"
-            render={() => (
-              <Page>
-                <SingleArticle />
-              </Page>
-            )}
-          />
+    // <div style={{ direction: i18n.resolvedLanguage === "ar" ? "rtl" : "ltr" }}>
+    <Router>
+      {/* <ErrorBoundary> */}
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={() => (
+            <Page>
+              <Features />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/download"
+          render={() => (
+            <Page>
+              <Download />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/lifestyle"
+          render={() => (
+            <Page>
+              <Lifestyle />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/article"
+          render={() => (
+            <Page>
+              <Article />
+            </Page>
+          )}
+        />
+        <Route
+          exact
+          path="/article/:slug"
+          render={() => (
+            <Page>
+              <SingleArticle />
+            </Page>
+          )}
+        />
 
-          <Route
-            exact
-            path="/pricing"
-            render={() => (
-              <Page>
-                <Pricing />
-              </Page>
-            )}
-          />
+        <Route
+          exact
+          path="/pricing"
+          render={() => (
+            <Page>
+              <Pricing />
+            </Page>
+          )}
+        />
 
-          <Route
-            exact
-            path="/privacy"
-            render={() => (
-              <Page>
-                <Privacy />
-              </Page>
-            )}
-          />
-          {/* 
+        <Route
+          exact
+          path="/privacy"
+          render={() => (
+            <Page>
+              <Privacy />
+            </Page>
+          )}
+        />
+        {/* 
         <Route
           exact
           path="/features"
@@ -137,10 +137,10 @@ function App() {
           )}
         />
           */}
-        </Switch>
-        {/* </ErrorBoundary> */}
-      </Router>
-    </div>
+      </Switch>
+      {/* </ErrorBoundary> */}
+    </Router>
+    // </div>
   );
 }
 
