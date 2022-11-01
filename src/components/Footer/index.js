@@ -6,14 +6,17 @@ import Subscription from "../Subscription";
 import Theme from "../Theme";
 import Icon from "../Icon";
 import Image from "../Image";
+import { useTranslation } from "react-i18next";
 
 const menu = [
   {
-    title: "Lifestyle",
+    title_en: "Lifestyle",
+    title_ar: "نمط حياة",
     url: "/lifestyle",
   },
   {
-    title: "Privacy",
+    title_en: "Privacy",
+    title_ar: "الخصوصية",
     url: "/privacy",
   },
   // {
@@ -29,40 +32,43 @@ const menu = [
   //   url: "/features",
   // },
   {
-    title: "Download",
+    title_en: "Download",
+    title_ar: "تنزيل التطبيق",
     url: "/download",
   },
 ];
 
 const socials = [
-  {
-    title: "facebook",
-    size: "16",
-    url: "https://www.facebook.com/ui8.net/",
-  },
+  // {
+  //   title: "facebook",
+  //   size: "16",
+  //   url: "https://www.facebook.com/ui8.net/",
+  // },
   {
     title: "twitter",
     size: "18",
-    url: "https://twitter.com/ui8",
+    url: "https://twitter.com/miranapp",
   },
   {
     title: "instagram",
     size: "16",
-    url: "https://www.instagram.com/ui8net/",
+    url: "https://www.instagram.com/miranapp/",
   },
-  {
-    title: "dribbble",
-    size: "16",
-    url: "https://dribbble.com/ui8",
-  },
-  {
-    title: "behance",
-    size: "20",
-    url: "https://www.behance.net/ui8",
-  },
+  // {
+  //   title: "dribbble",
+  //   size: "16",
+  //   url: "https://dribbble.com/ui8",
+  // },
+  // {
+  //   title: "behance",
+  //   size: "20",
+  //   url: "https://www.behance.net/ui8",
+  // },
 ];
 
 const Footer = () => {
+  const { i18n, t } = useTranslation("footer");
+
   const [visible, setVisible] = useState(false);
 
   return (
@@ -74,9 +80,9 @@ const Footer = () => {
               <Link className={styles.logo} to="/">
                 <Image
                   className={styles.pic}
-                  src="/images/logo-dark.svg"
-                  srcDark="/images/logo-light.svg"
-                  alt="Fitness Pro"
+                  src="/images/logo-miran.png"
+                  srcDark="/images/logo-miran.png"
+                  alt="Miran"
                 />
               </Link>
               <Theme className={styles.theme} />
@@ -97,30 +103,29 @@ const Footer = () => {
                     to={x.url}
                     key={index}
                   >
-                    {x.title}
+                    {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
                   </NavLink>
                 ))}
               </div>
             </div>
           </div>
           <div className={styles.col}>
-            <div className={styles.category}>contact</div>
+            <div className={styles.category}><p>{t("sections.contact.title")}</p></div>
             <div className={styles.info}>
-              <p>43252 Borer Mountains</p>
-              <p>Zackerychester</p>
-              <p>Bahamas</p>
-              <p>732-528-4945</p>
+              <p>{t("sections.contact.address.p1")}</p>
+              <p>{t("sections.contact.address.p2")}</p>
+              <p>{t("sections.contact.address.p3")}</p>
+              <p>{t("sections.contact.address.p4")}</p>
             </div>
           </div>
           <div className={styles.col}>
-            <div className={styles.category}>newsletter</div>
+            <div className={styles.category}>{t("sections.newsletter.title")}</div>
             <div className={styles.info}>
-              Subscribe our newsletter to get more free design course and
-              resource.
+              {t("sections.newsletter.desc")}
             </div>
             <Subscription
               className={styles.subscription}
-              placeholder="Enter your email"
+              placeholder={t("sections.newsletter.email_placeholder")}
             />
           </div>
         </div>
@@ -128,7 +133,7 @@ const Footer = () => {
       <div className={styles.foot}>
         <div className={cn("container", styles.container)}>
           <div className={styles.copyright}>
-            Copyright © 2021 UI8 LLC. All rights reserved
+            {t("copyright")}
           </div>
           <div className={styles.socials}>
             {socials.map((x, index) => (

@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "stage": "Train smarter, get stronger",
+    "title": "Simple fitness experience for everyone.",
+    "text": "Track your workouts, get better results, and be the best version of you. Less thinking, more lifting.",
+    "donwload_app": "Download App",
+    "book_class": "Book a Class"
+  },
+  "advantages": {
+    "title": "Discover Our New Features",
+    "desc": "From the comfort of your living room to a hotel room across the globe, we put the best classes at your fingertips. No WiFi? Download videos offline for a practice that moves with you."
+  },
+  "intro": {
+    "title": "Train smarter, get stronger.",
+    "desc": "Fitness Pro helps track your workouts, get better results, and be the best version of you. Less thinking, more lifting 🔥🏀",
+    "start_trial": "Start free trial"
+  },
+  "steps": {
+    "title": "How it works",
+    "desc": "Stacks is a production-ready library of stackable content blocks built in React Native."
+  },
+  "about": {
+    "miran": "Miran",
+    "title": {
+      "p1": "Simple, powerful,",
+      "p2": "easy-to-use"
+    },
+    "desc": "Track your workouts, get better results, and be the best version of you. Less thinking, more lifting."
+  },
+  "plan": {
+    "title": "CHOOSE THE PLAN THAT’S RIGHT FOR YOU",
+    "desc": "Miran make the beautiful digital products & experiences",
+    "btns": {
+      "1month": "One month",
+      "3month": "Three months",
+      "get_started": "Get Started"
+    },
+    "per_month": "per month",
+    "per_3month": "per 3 months"
+  },
+  "faq": {
+    "get_started": "learn how to get started",
+    "title": "Frequently Asked Questions",
+    "desc": {
+      "text": "Join Fitness Pro community now to get free updates and also alot of freebies are waiting for you or",
+      "link": "Contact Support"
+    },
+    "q": {
+      "nothing": "You don’t need to do anything else",
+      "desc": {
+        "p1": "Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts.",
+        "p2": "Or hit the ground running with 10 pre-built templates, all in light or dark mode."
+      }
+    },
+    "learn_more": "Learn more"
+  },
+  "offer": {
+    "free_trial": "try it free for 14 days 🎾",
+    "title": "Anywhere you want. Anytime you want.",
+    "desc": "Get started with two free weeks of unlimited yoga, fitness, and meditation classes. Cancel anytime.",
+    "start_free_trial": "Start free trial"
+  }
+}

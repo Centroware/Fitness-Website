@@ -2,23 +2,24 @@ import React from "react";
 import cn from "classnames";
 import { Link } from "react-router-dom";
 import styles from "./Offer.module.sass";
+import { useTranslation } from "react-i18next";
 
 const Offer = ({ className }) => {
+  const { t } = useTranslation("features");
   return (
     <div className={cn(className, styles.section)}>
       <div className={cn("container", styles.container)}>
         <div className={cn("stage", styles.stage)}>
-          try it free for 14 days 🎾
+          {t("offer.free_trial")}
         </div>
         <h2 className={cn("h1", styles.title)}>
-          Anywhere you want. Anytime you want.
+          {t("offer.title")}
         </h2>
         <div className={styles.text}>
-          Get started with two free weeks of unlimited yoga, fitness, and
-          meditation classes. Cancel anytime.
+          {t("offer.desc")}
         </div>
         <Link className={cn("button", styles.button)} to="/download">
-          Start free trial
+          {t("offer.start_free_trial")}
         </Link>
       </div>
     </div>

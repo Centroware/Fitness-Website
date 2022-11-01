@@ -3,8 +3,10 @@ import cn from "classnames";
 import { Link } from "react-router-dom";
 import styles from "./Intro.module.sass";
 import ScrollParallax from "../ScrollParallax";
+import { useTranslation } from "react-i18next";
 
 const Intro = () => {
+  const { t } = useTranslation("features");
   return (
     <div className={cn("section-bg", styles.section)} >
       <div className={cn("container", styles.container)}>
@@ -33,14 +35,13 @@ const Intro = () => {
         </div>
         <div className={styles.wrap}>
           <h2 className={cn("h1", styles.title)}>
-            Train smarter, get stronger.
+            {t("intro.title")}
           </h2>
           <div className={styles.text}>
-            Fitness Pro helps track your workouts, get better results, and be
-            the best version of you. Less thinking, more lifting 🔥🏀
+            {t("intro.desc")}
           </div>
           <Link className={cn("button", styles.button)} to="/download">
-            Start free trial
+            {t("intro.start_trial")}
           </Link>
         </div>
       </div>

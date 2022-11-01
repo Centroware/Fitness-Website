@@ -5,31 +5,33 @@ import styles from "./Hero.module.sass";
 import ScrollButton from "../../../components/ScrollButton";
 import Image from "../../../components/Image";
 import ScrollParallax from "../../../components/ScrollParallax";
+import { useTranslation } from "react-i18next";
 
 const Hero = ({ scrollToRef }) => {
+  const { t } = useTranslation("features");
+
   return (
     <div className={styles.hero}>
       <div className={cn("container", styles.container)}>
         <div className={styles.wrap}>
           <div className={cn("stage", styles.stage)}>
-            Train smarter. get stronger
+            {t("hero.stage")}
           </div>
           <h1 className={cn("h1", styles.title)}>
-            Simple fitness experience for everyone.
+            {t("hero.title")}
           </h1>
           <div className={styles.text}>
-            Track your workouts, get better results, and be the best version of
-            you. Less thinking, more lifting.
+            {t("hero.text")}
           </div>
           <div className={styles.btns}>
             <Link className={cn("button", styles.button)} to="/download">
-              Download App
+              {t("hero.donwload_app")}
             </Link>
             <Link
               className={cn("button-stroke", styles.button)}
               to="/class02-details"
             >
-              Book a Class
+              {t("hero.book_class")}
             </Link>
           </div>
         </div>

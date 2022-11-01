@@ -4,9 +4,11 @@ import styles from "./About.module.sass";
 import Image from "../../../components/Image";
 import ScrollParallax from "../../../components/ScrollParallax";
 import { getContent } from "../../../helpers.js";
+import { useTranslation } from "react-i18next";
 
 
 const About = () => {
+  const { i18n, t } = useTranslation("features");
   const [content, setContent] = useState("");
 
   useEffect(() => {
@@ -23,7 +25,8 @@ const About = () => {
 
   const items = [
     {
-      title: "About Miran",
+      title_en: "About Miran",
+      title_ar: "عن ميران",
       content,
       color: "#9757D7",
     }
@@ -33,15 +36,16 @@ const About = () => {
       <div className={cn("container", styles.container)}>
         <div className={styles.row}>
           <div className={styles.col}>
-            <div className={cn("stage", styles.stage)}>Miran</div>
+            <div className={cn("stage", styles.stage)}>{t("about.miran")}</div>
           </div>
           <div className={styles.col}>
             <h2 className={cn("h2", styles.title)}>
-              Simple, powerful, <br></br>easy-to-use
+              {t("about.title.p1")}
+              <br></br>
+              {t("about.title.p2")}
             </h2>
             <div className={styles.info}>
-              Track your workouts, get better results, and be the best version
-              of you. Less thinking, more lifting.
+              {t("about.desc")}
             </div>
           </div>
         </div>
@@ -56,7 +60,9 @@ const About = () => {
                   >
                     00
                   </div>
-                  <div className={styles.subtitle}>{x.title}</div>
+                  <div className={styles.subtitle}>
+                    {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                  </div>
                   <div className={styles.content}>{x.content}</div>
                 </ScrollParallax>
               ))}

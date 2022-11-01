@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "contact": {
+      "title": "contact",
+      "address": {
+        "p1": "43252 Borer Mountains",
+        "p2": "Zackerychester",
+        "p3": "Bahamas",
+        "p4": "732-528-4945"
+      }
+    },
+    "newsletter": {
+      "title": "newsletter",
+      "desc": " Subscribe our newsletter to get more free design course and resource.",
+      "email_placeholder": "Enter your email"
+    }
+  },
+  "copyright": "Copyright © 2022 Miran. All rights reserved"
+}

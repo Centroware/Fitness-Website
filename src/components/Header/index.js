@@ -5,6 +5,7 @@ import styles from "./Header.module.sass";
 import DropdownMenu from "./DropdownMenu";
 import Icon from "../Icon";
 import Image from "../Image";
+import { useTranslation } from "react-i18next";
 
 const navLinks = [
   // {
@@ -12,7 +13,8 @@ const navLinks = [
   //   url: "/features",
   // },
   {
-    title: "Blog",
+    title_en: "Blog",
+    title_ar: "مقالات",
     url: "/article",
   },
   // {
@@ -20,7 +22,8 @@ const navLinks = [
   //   url: "/pricing",
   // },
   {
-    title: "Download",
+    title_en: "Download",
+    title_ar: "تنزيل التطبيق",
     url: "/download",
   },
   // {
@@ -109,11 +112,13 @@ const navLinks = [
   //   },
   // },
   {
-    title: "Lifestyle",
+    title_en: "Lifestyle",
+    title_ar: "نمط حياة",
     url: "/lifestyle",
   },
   {
-    title: "Privacy",
+    title_en: "Privacy",
+    title_ar: "الخصوصية",
     url: "/privacy",
   },
 ];
@@ -152,6 +157,8 @@ const contact = [
 ];
 
 const Headers = () => {
+  const { t, i18n } = useTranslation("navbar");
+
   const [visibleNav, setVisibleNav] = useState(false);
 
   return (
@@ -166,7 +173,7 @@ const Headers = () => {
             className={styles.pic}
             src="/images/logo-miran.png"
             srcDark="/images/logo-miran.png"
-            alt="Fitness Pro"
+            alt="Miran"
           />
         </Link>
         <div className={cn(styles.wrap, { [styles.active]: visibleNav })}>
@@ -187,7 +194,7 @@ const Headers = () => {
                   key={index}
                   onClick={() => setVisibleNav(false)}
                 >
-                  {x.title}
+                  {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
                 </NavLink>
               )
             )}
@@ -218,7 +225,7 @@ const Headers = () => {
               className={cn("button-stroke button-small", styles.button)}
               to="/"
             >
-              Get free trial
+              {t("free_trial")}
             </Link>
           </div>
         </div>
@@ -226,8 +233,16 @@ const Headers = () => {
           className={cn("button-stroke button-small", styles.button)}
           to="/download"
         >
-          Get free trial
+          {t("free_trial")}
         </Link>
+        <button
+          className={cn(" button-small", styles.lang)}
+          onClick={() =>
+            i18n.changeLanguage(i18n.resolvedLanguage === "en" ? "ar" : "en")
+          }
+        >
+          {t("lang")}
+        </button>
         <button
           className={cn(styles.burger, { [styles.active]: visibleNav })}
           onClick={() => setVisibleNav(!visibleNav)}

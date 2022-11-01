@@ -4,6 +4,7 @@ import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
 import { Link } from "react-router-dom";
 import { API_URL, PROXY_SERVER_URL } from "../../../config";
+import { useTranslation } from "react-i18next";
 
 const options = [
   {
@@ -55,6 +56,7 @@ const options = [
 
 
 const Plan = () => {
+  const { t } = useTranslation("features");
   const [plan, setPlan] = useState(0);
   const [more, setMore] = useState([false, false, false]);
   const [plans, setPlans] = useState({});
@@ -107,8 +109,8 @@ const Plan = () => {
       color: "#23262F",
       description: "14 days of free trial",
       price: "0",
-      note: plan === 0 ? "per month" : "per 3 months",
-      button: "Get Started",
+      note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
+      button: t("plan.btns.get_started"),
       options: [
         "true",
         "true",
@@ -128,8 +130,8 @@ const Plan = () => {
       color: "#23262F",
       description: "Fit with everyone",
       price: plan === 0 ? plans["1monthPrime"]?.price : plans["3monthPrime"]?.price,
-      note: plan === 0 ? "per month" : "per 3 months",
-      button: "Get Started",
+      note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
+      button: t("plan.btns.get_started"),
       options: [
         "true",
         "true",
@@ -148,8 +150,8 @@ const Plan = () => {
       color: "#23262F",
       description: "Are you pro? Let’s do it",
       price: plan === 0 ? plans["1monthPrime+"]?.price : plans["3monthPrime+"]?.price,
-      note: plan === 0 ? "per month" : "per 3 months",
-      button: "Get Started",
+      note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
+      button: t("plan.btns.get_started"),
       options: [
         "true",
         "true",
@@ -186,10 +188,10 @@ const Plan = () => {
     <div className={cn("section-bg", styles.section)}>
       <div className={cn("container", styles.container)}>
         <div className={cn("stage", styles.stage)}>
-          Choose the plan that’s right for you
+          {t("plan.title")}
         </div>
         <h1 className={cn(styles.title)}>
-          Miran make the beautiful digital products & experiences
+          {t("plan.desc")}
         </h1>
 
         <div className={styles.btns}>
@@ -198,13 +200,13 @@ const Plan = () => {
               onClick={() => setPlan(0)}
               className={cn({ [styles.planButtonActive]: plan == 0 }, styles.planButton)}
             >
-              One month
+              {t("plan.btns.1month")}
             </button>
             <button
               onClick={() => setPlan(1)}
               className={cn({ [styles.planButtonActive]: plan == 1 }, styles.planButton)}
             >
-              Three months
+              {t("plan.btns.3month")}
             </button>
           </div>
         </div>

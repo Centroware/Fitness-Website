@@ -3,8 +3,11 @@ import cn from "classnames";
 import styles from "./Item.module.sass";
 import Icon from "../../../../components/Icon";
 import ScrollParallax from "../../../../components/ScrollParallax";
+import { useTranslation } from "react-i18next";
 
 const Item = ({ item }) => {
+  const { i18n, t } = useTranslation("features");
+
   const [visible, setVisible] = useState(false);
 
   return (
@@ -13,7 +16,9 @@ const Item = ({ item }) => {
         className={cn(styles.head, { [styles.active]: visible })}
         onClick={() => setVisible(!visible)}
       >
-        <div className={styles.title}>{item.title}</div>
+        <div className={styles.title}>
+          {i18n.resolvedLanguage === "en" ? item.title_en : item.title_ar}
+        </div>
         <div className={styles.arrow}>
           <Icon name="arrow-bottom" size="10" />
         </div>
@@ -34,20 +39,18 @@ const Item = ({ item }) => {
           </div>
           <div className={styles.col}>
             <div className={styles.info}>
-              You don’t need to do anything else
+              {t("faq.q.nothing")}
             </div>
             <div className={styles.content}>
               <p>
-                Mix-and-match dozens of responsive elements to quickly configure
-                your favorite landing page layouts.
+                {t("faq.q.desc.p1")}
               </p>
               <p>
-                Or hit the ground running with 10 pre-built templates, all in
-                light or dark mode."{" "}
+                {t("faq.q.desc.p2")}
               </p>
             </div>
             <button className={cn("button-stroke button-small", styles.button)}>
-              Learn more
+              {t("faq.q.learn_more")}
             </button>
           </div>
         </div>

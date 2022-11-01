@@ -2,48 +2,54 @@ import React from "react";
 import cn from "classnames";
 import styles from "./Steps.module.sass";
 import ScrollParallax from "../../../components/ScrollParallax";
+import { useTranslation } from "react-i18next";
 
 const items = [
   {
-    title: "Download",
+    title_en: "Download",
+    title_ar: "حمل التطبيق",
     color: "#3772FF",
     images: "/images/content/download.svg",
-    content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
   },
   {
-    title: "Choose your trainner",
+    title_en: "Choose your trainner",
+    title_ar: "اختر مدربك الخاص",
     color: "#9757D7",
     images: "/images/content/whistle.svg",
-    content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
+
   },
   {
-    title: "Set the goals",
+    title_en: "Set the goals",
+    title_ar: "ضع أهدافك",
     color: "#EF466F",
     images: "/images/content/medal.svg",
-    content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
+
   },
   {
-    title: "Workout time",
+    title_en: "Workout time",
+    title_ar: "وقت التمرين",
     color: "#45B26B",
     images: "/images/content/stopwatch.svg",
-    content:
-      "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
+    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
   },
 ];
 
 const Steps = ({ scrollToRef }) => {
+  const { i18n, t } = useTranslation("features");
+
   return (
     <div className={cn("section", styles.section)} ref={scrollToRef}>
       <div className={cn("container", styles.container)}>
         <div className={styles.head}>
-          <h2 className={cn("h2", styles.title)}>How it works</h2>
-          <div className={styles.info}>
-            Stacks is a production-ready library of stackable content blocks
-            built in React Native.
-          </div>
+          <h2 className={cn("h2", styles.title)}>{t("intro.title")}</h2>
+          <div className={styles.info}>{t("intro.desc")}</div>
         </div>
         <div className={styles.list}>
           {items.map((x, index) => (
@@ -55,8 +61,12 @@ const Steps = ({ scrollToRef }) => {
                 <img src={x.images} alt={`Step ${index}`} />
               </div>
               <div className={styles.number}>Step {index + 1}</div>
-              <div className={styles.subtitle}>{x.title}</div>
-              <div className={styles.content}>{x.content}</div>
+              <div className={styles.subtitle}>
+                {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+              </div>
+              <div className={styles.content}>
+                {i18n.resolvedLanguage === "en" ? x.content_en : x.content_ar}
+              </div>
             </ScrollParallax>
           ))}
         </div>
