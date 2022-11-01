@@ -130,7 +130,7 @@ const items = [
 
 const Team = () => {
   const options = [];
-  items.map((x) => options.push(x.title));
+  items.map((x) => options.push(x.title_en));
 
   const { i18n, t } = useTranslation("features");
   const [category, setCategory] = useState(options[0]);
@@ -152,9 +152,9 @@ const Team = () => {
             {items.map((x, index) => (
               <button
                 className={cn(styles.btn, {
-                  [styles.active]: x.title === category,
+                  [styles.active]: x.title_en === category,
                 })}
-                onClick={() => setCategory(x.title)}
+                onClick={() => setCategory(x.title_en)}
                 key={index}
               >
                 {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
@@ -170,7 +170,7 @@ const Team = () => {
         </div>
         <div className={styles.list}>
           {items
-            .find((x) => x.title === category)
+            .find((x) => x.title_en === category)
             .items.map((x, index) => (
               <Item item={x} key={index} />
             ))}
