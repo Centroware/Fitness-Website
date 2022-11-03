@@ -89,10 +89,10 @@ const Footer = () => {
             </div>
             <div className={cn(styles.item, { [styles.active]: visible })}>
               <div
-                className={styles.category}
+                className={i18n.resolvedLanguage === "en" ? styles.category : styles.categoryRtl}
                 onClick={() => setVisible(!visible)}
               >
-                footer nav
+                {t("footer_nav")}
                 <Icon name="arrow-bottom" size="9" />
               </div>
               <div className={styles.menu}>

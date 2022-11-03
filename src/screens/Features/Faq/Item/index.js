@@ -33,7 +33,9 @@ const Item = ({ item }) => {
                 alt="About pic"
               />
               <button className={cn("play-small", styles.play)}>
-                <Icon name="play" size="14" />
+                <div className={styles.wrapper}>
+                  <Icon name="play" size="14" />
+                </div>
               </button>
             </div>
           </div>

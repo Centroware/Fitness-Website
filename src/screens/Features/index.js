@@ -22,7 +22,6 @@ const Features = () => {
   return (
     <>
       <Hero scrollToRef={scrollToRef} />
-      {/* <Blog/> */}
       <Advantages scrollToRef={scrollToRef} className="section-pb64" />
       <Intro />
       <Steps />
@@ -34,6 +33,7 @@ const Features = () => {
       {/* <Lifestyle /> */}
       <Plan />
       <Faq />
+      <Blog />
       <Offer className="section" />
     </>
   );

@@ -222,7 +222,7 @@ const Plan = () => {
                   <div className={styles.divider}></div>
                   {type.price && (
                     <>
-                      <div className={styles.cost}>
+                      <div className={i18n.resolvedLanguage === "en" ? styles.cost : styles.costRtl}>
                         <span className={i18n.resolvedLanguage === "en" ? styles.sign : styles.signRtl}>SR</span>{" "}
                         <span className={styles.price}>{type.price}<span className={styles.usd}> SAR</span></span>
                       </div>
@@ -237,8 +237,8 @@ const Plan = () => {
                     })}
                     onClick={() => handleClick(index)}
                   >
-                    See all features
-                    <Icon name="arrow-bottom" size="9" />
+                    {t("plan.see_features")}
+                    <Icon className={i18n.resolvedLanguage === "en" ? "" : styles.arrowRtl} name="arrow-bottom" size="9" />
                   </div>
 
                   <div
