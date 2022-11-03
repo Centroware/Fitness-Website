@@ -13,7 +13,8 @@ const Offer = ({ className }) => {
           {t("offer.free_trial")}
         </div>
         <h2 className={cn("h1", styles.title)}>
-          {t("offer.title")}
+          {t("offer.title.p1")}
+          {t("offer.title.p2")}
         </h2>
         <div className={styles.text}>
           {t("offer.desc")}

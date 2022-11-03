@@ -56,7 +56,10 @@
   },
   "offer": {
     "free_trial": "try it free for 14 days 🎾",
-    "title": "Anywhere you want. Anytime you want.",
+    "title": {
+      "p1": "Anywhere you want",
+      "p2": ". Anytime you want."
+    },
     "desc": "Get started with two free weeks of unlimited yoga, fitness, and meditation classes. Cancel anytime.",
     "start_free_trial": "Start free trial"
   }

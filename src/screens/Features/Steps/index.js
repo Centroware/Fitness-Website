@@ -53,9 +53,9 @@ const Steps = ({ scrollToRef }) => {
         </div>
         <div className={styles.list}>
           {items.map((x, index) => (
-            <ScrollParallax className={styles.item} key={index}>
+            <ScrollParallax className={i18n.resolvedLanguage === "en" ? styles.item : styles.itemRtl} key={index}>
               <div
-                className={styles.preview}
+                className={i18n.resolvedLanguage === "en" ? styles.preview : styles.previewRtl}
                 style={{ backgroundColor: x.color }}
               >
                 <img src={x.images} alt={`Step ${index}`} />

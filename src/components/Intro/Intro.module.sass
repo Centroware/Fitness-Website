@@ -23,6 +23,7 @@
 
 .title
     margin-bottom: 32px
+    line-height: 90px
 
 .text
     margin-bottom: 40px
@@ -47,6 +48,27 @@
         top: auto
         right: auto
         left: -15px
+        margin: 96px auto 24px
+        transform: translateY(0)
+        
+.galleryRtl
+    position: absolute
+    top: 53%
+    left: calc(50% - 541px)
+    width: 584px
+    transform: translateY(-40%)
+    pointer-events: none
+    +d
+        left: calc(50% - 440px)
+        width: 390px
+        transform: translateY(-44%)
+    +t
+        left: calc(50% - 380px)
+    +m
+        position: relative
+        top: auto
+        left: auto
+        right: -15px
         margin: 96px auto 24px
         transform: translateY(0)
 

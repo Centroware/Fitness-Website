@@ -39,6 +39,12 @@
     &:not(:last-child)
         margin-right: 16px
     
+.buttonRtl
+    +m
+        padding: 0 22px
+    &:not(:last-child)
+        margin-left: 16px
+    
 .scroll
     position: absolute
     bottom: 96px
@@ -48,10 +54,12 @@
 .gallery
     position: absolute
     top: 50%
-    right: calc(50% - 720px)
     width: 800px
     transform: translateY(-50%)
     pointer-events: none
+
+    right: calc(50% - 720px)
+        
     +d
         top: 54%
         right: calc(50% - 600px)
@@ -68,6 +76,32 @@
         transform: translateY(0)
     +s
         left: -32%
+
+.galleryRtl
+    position: absolute
+    top: 50%
+    width: 800px
+    transform: translateY(-50%)
+    pointer-events: none
+
+    left: calc(50% - 720px)
+        
+    +d
+        top: 54%
+        left: calc(50% - 600px)
+        width: 600px
+    +t
+        left: calc(50% - 520px)
+        width: 550px
+    +m
+        position: relative
+        top: auto
+        left: auto
+        width: 580px
+        margin: 0 auto
+        transform: translateY(0)
+    +s
+        right: -32%
 
 .preview
     &:first-child

@@ -6,11 +6,11 @@ import ScrollParallax from "../ScrollParallax";
 import { useTranslation } from "react-i18next";
 
 const Intro = () => {
-  const { t } = useTranslation("features");
+  const { i18n, t } = useTranslation("features");
   return (
     <div className={cn("section-bg", styles.section)} >
       <div className={cn("container", styles.container)}>
-        <div className={styles.gallery}>
+        <div className={i18n.resolvedLanguage === "en" ? styles.gallery : styles.galleryRtl}>
           <ScrollParallax className={styles.preview} animateIn="fadeInUp">
             <img
               srcSet="/images/content/bag@2x.png 2x"

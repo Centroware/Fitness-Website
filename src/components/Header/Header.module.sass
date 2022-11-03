@@ -22,6 +22,14 @@
         margin-right: auto
     +t  
         margin-right: 20px
+.logoRtl
+    margin-left: 48px
+    .pic
+        width: 100px
+    +d
+        margin-left: auto
+    +t  
+        margin-left: 20px
 
 .wrap
     display: flex
@@ -37,6 +45,43 @@
         position: absolute
         top: 100%
         left: 0
+        right: 0
+        align-items: flex-start
+        padding: 0 80px 80px
+        background: $neutrals8
+        box-shadow: 0px 64px 64px 0 rgba(15, 15, 15, 0.1)
+        &.active
+            display: flex
+    +t
+        padding: 0 40px 64px
+    +m
+        flex-direction: column
+        align-items: flex-start
+        min-height: calc(100vh - 104px)
+        padding: 48px 32px 44px
+    +dark
+        border-color: $neutrals3
+        +d
+            background: $neutrals1
+    .button
+        display: none
+        +m
+            display: inline-flex
+            margin-top: 48px
+.wrapRtl
+    display: flex
+    align-items: center
+    flex-grow: 1
+    padding-right: 48px
+    border-right: 1px solid $neutrals6
+    +x
+        padding-right: 0
+        border: none
+    +d
+        display: none
+        position: absolute
+        top: 100%
+        right: 0
         right: 0
         align-items: flex-start
         padding: 0 80px 80px
@@ -179,7 +224,7 @@
         +dark
             fill: $neutrals8
     &:not(:last-child)
-        margin-right: 24px
+        margin: 0 12px
 
 .burger
     display: none

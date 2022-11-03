@@ -165,7 +165,7 @@ const Headers = () => {
     <header className={styles.header}>
       <div className={cn("container", styles.container)}>
         <Link
-          className={styles.logo}
+          className={i18n.resolvedLanguage === "en" ? styles.logo : styles.logoRtl}
           to="/"
           onClick={() => setVisibleNav(false)}
         >
@@ -176,7 +176,7 @@ const Headers = () => {
             alt="Miran"
           />
         </Link>
-        <div className={cn(styles.wrap, { [styles.active]: visibleNav })}>
+        <div className={cn(i18n.resolvedLanguage === "en" ? styles.wrap : styles.wrapRtl, { [styles.active]: visibleNav })}>
           <nav className={styles.nav}>
             {navLinks.map((x, index) =>
               x.content ? (

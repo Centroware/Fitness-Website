@@ -76,7 +76,7 @@ const Footer = () => {
       <div className={styles.body}>
         <div className={cn("container", styles.container)}>
           <div className={styles.col}>
-            <div className={styles.box}>
+            <div className={i18n.resolvedLanguage === "en" ? styles.box : styles.boxRtl}>
               <Link className={styles.logo} to="/">
                 <Image
                   className={styles.pic}

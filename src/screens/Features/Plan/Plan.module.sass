@@ -146,6 +146,11 @@
     top: 0
     right: calc(100% + 4px)
     +body-1
+.signRtl
+    position: absolute
+    top: 0
+    left: calc(100% + 4px)
+    +body-1
 
 .note
     +caption-2
@@ -252,11 +257,11 @@
 
     .planButton
         background: $neutrals6
+        color: $neutrals4
         padding: 13px 40px
         border-radius: 8px
         font-weight: 700
-        &:not(:last-child)
-            margin-right: 10px
     .planButtonActive
         background: $white
-        // color: $neutrals1        
+        color: $neutrals2
+

@@ -56,7 +56,7 @@ const options = [
 
 
 const Plan = () => {
-  const { t } = useTranslation("features");
+  const { i18n, t } = useTranslation("features");
   const [plan, setPlan] = useState(0);
   const [more, setMore] = useState([false, false, false]);
   const [plans, setPlans] = useState({});
@@ -223,7 +223,7 @@ const Plan = () => {
                   {type.price && (
                     <>
                       <div className={styles.cost}>
-                        <span className={styles.sign}>SR</span>{" "}
+                        <span className={i18n.resolvedLanguage === "en" ? styles.sign : styles.signRtl}>SR</span>{" "}
                         <span className={styles.price}>{type.price}<span className={styles.usd}> SAR</span></span>
                       </div>
                       <div className={styles.note}>{type.note}</div>

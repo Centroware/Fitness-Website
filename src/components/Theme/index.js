@@ -3,12 +3,13 @@ import cn from "classnames";
 import styles from "./Theme.module.sass";
 import useDarkMode from "use-dark-mode";
 import Icon from "../Icon";
+import i18next from "i18next";
 
 const Theme = ({ className }) => {
   const darkMode = useDarkMode(false);
 
   return (
-    <label className={cn(styles.theme, className)}>
+    <label className={cn(i18next.resolvedLanguage === "en" ? styles.theme : styles.themeRtl)}>
       <input
         className={styles.input}
         checked={darkMode.value}
