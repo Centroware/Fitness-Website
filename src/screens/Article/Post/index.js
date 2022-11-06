@@ -2,6 +2,7 @@ import React from "react";
 import cn from "classnames";
 import styles from "./Post.module.sass";
 import Icon from "../../../components/Icon";
+import i18n from "i18next";
 
 const Post = () => {
   return (
@@ -16,7 +17,7 @@ const Post = () => {
           </button>
         </div>
         <div className={styles.row}>
-          <div className={styles.col}>
+          <div className={i18n.resolvedLanguage === "en" ? styles.col : styles.colRtl}>
             <div className={styles.preview}>
               <img src="/images/content/diet-food.jpg" alt="diet" />
             </div>

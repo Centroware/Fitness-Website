@@ -46,6 +46,30 @@
             margin-bottom: 80px
             +m
                 margin-bottom: 48px
+.colRtl
+    &:first-child
+        flex: 0 0 256px
+        margin-right: auto
+        +d
+            margin-left: 80px
+        +t
+            max-width: 400px
+            margin: 0 auto
+    &:nth-child(2)
+        flex: 0 0 640px
+        +d
+            flex: 1 1 auto
+        +t
+            flex: 0 0 auto
+            margin-bottom: 64px
+        +m
+            margin-bottom: 48px
+        .title
+            margin-bottom: 32px
+        .preview
+            margin-bottom: 80px
+            +m
+                margin-bottom: 48px
 
 .preview
     img
