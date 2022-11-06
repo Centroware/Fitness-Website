@@ -2,17 +2,14 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import cn from "classnames";
 import styles from "./SingleArticle.module.sass";
+import { useLocation } from 'react-router-dom';
 
 const SingleArticle = () => {
-    const { slug } = useParams();
+    // const { slug } = useParams();
+    const { state } = useLocation();
 
     return (
-        <div>
-            <h1 className={cn(styles.header)}>
-                {slug} <br />
-                SingleArticle
-            </h1>
-        </div>
+        <div className={styles.content} dangerouslySetInnerHTML={{ __html: state }} />
     );
 };
 

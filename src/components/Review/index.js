@@ -8,21 +8,21 @@ const items = [
   {
     author: "Dorthy Runolfsdottir",
     position: "Lead Visual Designer at UI8",
-    logo: "./images/content/velocity9.svg",
+    logo: "/images/content/velocity9.svg",
     comment:
       "The greatest fitness app. It's clear the makers behind this thing use it every week, because it is so perfect.",
   },
   {
     author: "Dorthy Runolfsdottir",
     position: "Lead Visual Designer at UI8",
-    logo: "./images/content/travelers.svg",
+    logo: "/images/content/travelers.svg",
     comment:
       "The best of all the workout apps I have tried on iOS. I have used Fitness Pro for more than a year now. It is intuitive and clean, awesome app.",
   },
   {
     author: "Dorthy Runolfsdottir",
     position: "Lead Visual Designer at UI8",
-    logo: "./images/content/goldlines.svg",
+    logo: "/images/content/goldlines.svg",
     comment:
       "The greatest fitness app. It's clear the makers behind this thing use it every week, because it is so perfect.",
   },

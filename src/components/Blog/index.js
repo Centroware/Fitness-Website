@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cn from "classnames";
 import styles from "./Blog.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import Item from "./Item";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { getBlogs, getBlogsCategories } from "../../helpers";
+import Spinner from "../Spinner";
 
 const items = [
     {
@@ -192,13 +194,58 @@ const items = [
 const Blog = ({ mainPage }) => {
     const { t } = useTranslation("features");
     const [activeIndex, setActiveIndex] = useState(0);
+    const [blogs, setBlogs] = useState([]);
+    const [blogsCategories, setBlogsCategories] = useState([]);
+    const [blogsCount, setBlogsCount] = useState({
+        limit: 10,
+        offset: 0,
+        reachedEnd: false
+    });
+
+    const [loading, setLoading] = useState(false);
+
+    async function getData(limit, offset) {
+        setLoading(true);
+        const res = await getBlogs(limit, offset);
+        const blogsCategories = await getBlogsCategories();
+
+        if (!res.next)
+            setBlogsCount({ ...blogsCount, reachedEnd: true });
+
+        setBlogs(blogs.concat(res.result));
+        setBlogsCategories(blogsCategories);
+        setLoading(false);
+    }
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const loadMoreBlogs = () => {
+        const { limit, offset } = blogsCount;
+        getData(limit, offset + 10);
+        setBlogsCount({
+            offset: offset + 10
+        });
+    };
+
+    if (loading && !blogs.length) return <Spinner />;
+
+    let ApiItems = blogsCategories.map(cat => {
+        const items = blogs.filter(blog => blog.category.title === cat.title);
+        return {
+            title: cat.title,
+            items
+        };
+    });
+
     return (
         <div className={cn("container", {
             [styles.hero]: mainPage === true
         })}>
             <div>
                 <div className={styles.nav}>
-                    {items.map((x, index) => (
+                    {ApiItems.map((x, index) => (
                         <button
                             className={cn(styles.btn, {
                                 [styles.active]: index === activeIndex,
@@ -211,7 +258,7 @@ const Blog = ({ mainPage }) => {
                     ))}
                 </div>
                 <div className={styles.list}>
-                    {items[activeIndex].items.slice(0, mainPage === true ? -1 : 3).map((x, index) => (
+                    {ApiItems[activeIndex]?.items.slice(0, mainPage === true ? -1 : 3).map((x, index) => (
                         <ScrollParallax className={styles.box} key={index}>
                             <Item item={x} className={styles.item} />
                         </ScrollParallax>
@@ -219,11 +266,12 @@ const Blog = ({ mainPage }) => {
                 </div>
                 <div className={styles.btns}>
                     <Link to="/article">
-                        <button className={cn("button-stroke button-small", styles.button)}>
+                        {!blogsCount.reachedEnd && <button disabled={loading} className={cn("button-stroke button-small", styles.button)} onClick={mainPage && loadMoreBlogs}>
                             {t("blog.load_more")}
-                        </button>
+                        </button>}
                     </Link>
                 </div>
+                {loading && <Spinner />}
             </div>
         </div>
     );

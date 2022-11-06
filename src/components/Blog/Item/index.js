@@ -4,31 +4,33 @@ import cn from "classnames";
 import styles from "./Item.module.sass";
 
 const Item = ({ item, className }) => {
+  let default_date = new Date();
+  default_date = ((default_date.getMonth() > 8) ? (default_date.getMonth() + 1) : ('0' + (default_date.getMonth() + 1))) + '/' + ((default_date.getDate() > 9) ? default_date.getDate() : ('0' + default_date.getDate())) + '/' + default_date.getFullYear();
+
   return (
-    <Link className={cn(styles.item, className)} to={item.url}>
+    <Link className={cn(styles.item, className)} to={{
+      pathname: `/article/${item.id}`,
+      state: item.content
+    }}>
       <div className={styles.preview}>
-        <img srcSet={`${item.image2x} 2x`} src={item.image} alt={item.status} />
+        <img srcSet={`/images/content/lifestyle-photo-1@2x.png 2x`} src={"/images/content/lifestyle-photo-1.png"} alt={item.status} />
       </div>
-      <div
-        className={cn(
-          { "status-red": item.category === "red" },
-          { "status-green": item.category === "green" },
-          { "status-pink": item.category === "pink" },
-          { "status-black": item.category === "black" },
-          styles.category
-        )}
-      >
-        {item.categoryContent}
+      <div>
+        {item.tags.map(tag => {
+          return <div key={tag.id} className={cn("status", styles.category)} style={{ background: `#${tag.hex_color}` }}>
+            {tag.title}
+          </div>;
+        })}
       </div>
       <div className={styles.title}>{item.title}</div>
       <div className={styles.foot}>
         <div className={styles.user}>
           <div className={styles.avatar}>
-            <img src={item.avatar} alt="Avatar" />
+            <img src={"/images/content/avatar-5.png"} alt="Avatar" />
           </div>
-          <div className={styles.author}>{item.author}</div>
+          <div className={styles.author}>{item.created_by.full_name || "Unknown"}</div>
         </div>
-        <div className={styles.date}>{item.date}</div>
+        <div className={styles.date}>{item.date || default_date}</div>
       </div>
     </Link>
   );
