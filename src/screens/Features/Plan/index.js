@@ -215,7 +215,7 @@ const Plan = () => {
             {data.map((type, index) => (
               <div className={styles.col} key={index}>
                 <div className={styles.head}>
-                  <div className={styles.package} style={{ color: type.color }}>
+                  <div className={styles.package}>
                     <h3> {type.title} {type.tag ? <span className={styles.tag}>{type.tag}</span> : null}</h3>
                   </div>
                   <div className={styles.description}>{type.description}</div>
@@ -257,13 +257,13 @@ const Plan = () => {
                       </div>
                     ))}
                   </div>
-                  <Link to="/download">
+                  <a href="https://miranapp.app.link/Eoqt0wlsJub">
                     <button
                       className={cn("button", styles.button)}
                     >
                       {type.button}
                     </button>
-                  </Link>
+                  </a>
                 </div>
               </div>
             ))}

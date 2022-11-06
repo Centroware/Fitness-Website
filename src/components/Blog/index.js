@@ -4,6 +4,7 @@ import styles from "./Blog.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import Item from "./Item";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const items = [
     {
@@ -189,6 +190,7 @@ const items = [
 ];
 
 const Blog = ({ mainPage }) => {
+    const { t } = useTranslation("features");
     const [activeIndex, setActiveIndex] = useState(0);
     return (
         <div className={cn("container", {
@@ -218,7 +220,7 @@ const Blog = ({ mainPage }) => {
                 <div className={styles.btns}>
                     <Link to="/article">
                         <button className={cn("button-stroke button-small", styles.button)}>
-                            Load more
+                            {t("blog.load_more")}
                         </button>
                     </Link>
                 </div>

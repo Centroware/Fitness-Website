@@ -63,5 +63,8 @@
     },
     "desc": "Get started with two free weeks of unlimited yoga, fitness, and meditation classes. Cancel anytime.",
     "start_free_trial": "Start free trial"
+  },
+  "blog": {
+    "load_more": "Load more"
   }
 }
