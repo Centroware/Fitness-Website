@@ -13,7 +13,8 @@
   "intro": {
     "title": "Train smarter, get stronger.",
     "desc": "Fitness Pro helps track your workouts, get better results, and be the best version of you. Less thinking, more lifting 🔥🏀",
-    "start_trial": "Start free trial"
+    "start_trial": "Start free trial",
+    "step": "Step"
   },
   "steps": {
     "title": "How it works",
@@ -37,7 +38,20 @@
     },
     "per_month": "per month",
     "per_3month": "per 3 months",
-    "see_features": "See all features"
+    "see_features": "See all features",
+    "free": {
+      "title": "Free",
+      "desc": "14 days of free trial"
+    },
+    "prime": {
+      "title": "Prime",
+      "desc": "Fit with everyone",
+      "popular": "POPULAR"
+    },
+    "prime+": {
+      "title": "Prime+",
+      "desc": "Are you pro? Let’s do it"
+    }
   },
   "faq": {
     "get_started": "learn how to get started",

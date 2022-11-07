@@ -3,6 +3,7 @@ import cn from "classnames";
 import { Link } from "react-router-dom";
 import styles from "./Story.module.sass";
 import ScrollParallax from "../../../components/ScrollParallax";
+import i18n from "i18next";
 
 const items = [
   {
@@ -22,13 +23,13 @@ const Story = () => {
     <div className={cn("section", styles.section)}>
       <div className={cn("container", styles.container)}>
         <div className={cn("stage-small", styles.stage)}>yoga story</div>
-        <div className={styles.row}>
-          <div className={styles.col}>
+        <div className={i18n.resolvedLanguage === "en" ? styles.row : styles.rowRtl}>
+          <div className={i18n.resolvedLanguage === "en" ? styles.col : styles.colRtl}>
             <div className={styles.preview}>
               <img src="/images/content/story-pic.png" alt="Story Pic" />
             </div>
           </div>
-          <div className={styles.col}>
+          <div className={i18n.resolvedLanguage === "en" ? styles.col : styles.colRtl}>
             <h2 className={cn("h2", styles.title)}>What is Sweet and tone</h2>
             <div className={styles.info}>
               The Stacks series of products: Stacks: Landing Page Kit, Stacks:

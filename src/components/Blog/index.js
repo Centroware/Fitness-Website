@@ -192,7 +192,7 @@ const items = [
 ];
 
 const Blog = ({ mainPage }) => {
-    const { t } = useTranslation("features");
+    const { i18n, t } = useTranslation("features");
     const [activeIndex, setActiveIndex] = useState(0);
     const [blogs, setBlogs] = useState([]);
     const [blogsCategories, setBlogsCategories] = useState([]);
@@ -233,8 +233,9 @@ const Blog = ({ mainPage }) => {
 
     let ApiItems = blogsCategories.map(cat => {
         const items = blogs.filter(blog => blog.category.title === cat.title);
+        console.log();
         return {
-            title: cat.title,
+            title: (i18n.resolvedLanguage === "en" ? cat.title_en || "General" : cat.title_ar || "عام"),
             items
         };
     });

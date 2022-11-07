@@ -60,7 +60,7 @@ const Steps = ({ scrollToRef }) => {
               >
                 <img src={x.images} alt={`Step ${index}`} />
               </div>
-              <div className={styles.number}>Step {index + 1}</div>
+              <div className={styles.number}>{t("intro.step")} {index + 1}</div>
               <div className={styles.subtitle}>
                 {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
               </div>

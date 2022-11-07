@@ -105,9 +105,9 @@ const Plan = () => {
 
   const data = [
     {
-      title: "Free",
+      title: t("plan.free.title"),
       color: "#23262F",
-      description: "14 days of free trial",
+      description: t("plan.free.desc"),
       price: "0",
       note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
       button: t("plan.btns.get_started"),
@@ -125,10 +125,10 @@ const Plan = () => {
       ],
     },
     {
-      title: "Prime",
-      tag: "POPULAR",
+      title: t("plan.prime.title"),
+      tag: t("plan.prime.popular"),
       color: "#23262F",
-      description: "Fit with everyone",
+      description: t("plan.prime.desc"),
       price: plan === 0 ? plans["1monthPrime"]?.price : plans["3monthPrime"]?.price,
       note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
       button: t("plan.btns.get_started"),
@@ -146,9 +146,9 @@ const Plan = () => {
       ],
     },
     {
-      title: "Prime+",
+      title: t("plan.prime+.title"),
       color: "#23262F",
-      description: "Are you pro? Let’s do it",
+      description: t("plan.prime+.desc"),
       price: plan === 0 ? plans["1monthPrime+"]?.price : plans["3monthPrime+"]?.price,
       note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
       button: t("plan.btns.get_started"),

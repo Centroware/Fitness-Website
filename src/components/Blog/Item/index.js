@@ -2,8 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import styles from "./Item.module.sass";
+import { useTranslation } from "react-i18next";
 
 const Item = ({ item, className }) => {
+  const { i18n } = useTranslation();
+
   let default_date = new Date();
   default_date = ((default_date.getMonth() > 8) ? (default_date.getMonth() + 1) : ('0' + (default_date.getMonth() + 1))) + '/' + ((default_date.getDate() > 9) ? default_date.getDate() : ('0' + default_date.getDate())) + '/' + default_date.getFullYear();
 
@@ -24,7 +27,7 @@ const Item = ({ item, className }) => {
       </div>
       <div className={styles.title}>{item.title}</div>
       <div className={styles.foot}>
-        <div className={styles.user}>
+        <div className={i18n.resolvedLanguage === "en" ? styles.user : styles.userRtl}>
           <div className={styles.avatar}>
             <img src={"/images/content/avatar-5.png"} alt="Avatar" />
           </div>
