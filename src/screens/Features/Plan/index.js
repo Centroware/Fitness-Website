@@ -257,7 +257,7 @@ const Plan = () => {
                       </div>
                     ))}
                   </div>
-                  <a href="https://miranapp.app.link/Eoqt0wlsJub">
+                  <a target="_blank" rel="noreferrer" href="https://miranapp.app.link/Eoqt0wlsJub">
                     <button
                       className={cn("button", styles.button)}
                     >

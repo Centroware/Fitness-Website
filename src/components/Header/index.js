@@ -24,7 +24,7 @@ const navLinks = [
   {
     title_en: "Download",
     title_ar: "تنزيل التطبيق",
-    url: "/download",
+    href: "https://miranapp.app.link/Eoqt0wlsJub",
   },
   // {
   //   title: "Class",
@@ -178,26 +178,33 @@ const Headers = () => {
         </Link>
         <div className={cn(i18n.resolvedLanguage === "en" ? styles.wrap : styles.wrapRtl, { [styles.active]: visibleNav })}>
           <nav className={styles.nav}>
-            {navLinks.map((x, index) =>
-              x.content ? (
-                <DropdownMenu
-                  className={styles.group}
-                  item={x}
-                  key={index}
-                  setValue={setVisibleNav}
-                />
-              ) : (
-                <NavLink
-                  className={styles.link}
-                  activeClassName={styles.active}
-                  to={x.url}
-                  key={index}
-                  onClick={() => setVisibleNav(false)}
-                >
-                  {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
-                </NavLink>
-              )
-            )}
+            <>
+              {navLinks.map((x, index) =>
+                x.content ? (
+                  <DropdownMenu
+                    className={styles.group}
+                    item={x}
+                    key={index}
+                    setValue={setVisibleNav}
+                  />
+                ) : x.href ?
+                  <a className={styles.link} target="_blank" rel="noreferrer" href={x.href}>
+
+                    {t("download")}
+                  </a>
+                  : (
+                    <NavLink
+                      className={styles.link}
+                      activeClassName={styles.active}
+                      to={x.url}
+                      key={index}
+                      onClick={() => setVisibleNav(false)}
+                    >
+                      {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                    </NavLink>
+                  )
+              )}
+            </>
           </nav>
           <div className={styles.details}>
             <div className={styles.contact}>

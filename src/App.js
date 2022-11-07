@@ -40,7 +40,7 @@ function App() {
               </Page>
             )}
           />
-          <Route
+          {/* <Route
             exact
             path="/download"
             render={() => (
@@ -48,7 +48,7 @@ function App() {
                 <Download />
               </Page>
             )}
-          />
+          /> */}
           <Route
             exact
             path="/lifestyle"
