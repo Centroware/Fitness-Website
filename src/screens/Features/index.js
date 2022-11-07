@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { Suspense, useRef } from "react";
 // import styles from "./Features.module.sass";
 import Hero from "./Hero";
 import Intro from "../../components/Intro";
@@ -15,26 +15,29 @@ import Lifestyle from "./Lifestyle";
 import Faq from "./Faq";
 import Plan from "./Plan";
 import Steps from "./Steps";
+import Spinner from "../../components/Spinner";
 
 const Features = () => {
   const scrollToRef = useRef(null);
 
   return (
     <>
-      <Hero scrollToRef={scrollToRef} />
-      <Advantages scrollToRef={scrollToRef} className="section-pb64" />
-      <Intro />
-      <Steps />
-      {/* <Program /> */}
-      <About />
-      {/* <Review className="section-pb64" /> */}
-      {/* <Clients /> */}
-      {/* <Workouts /> */}
-      {/* <Lifestyle /> */}
-      <Plan />
-      <Faq />
-      <Blog />
-      <Offer className="section" />
+      <Suspense fallback={<Spinner />}>
+        <Hero scrollToRef={scrollToRef} />
+        <Advantages scrollToRef={scrollToRef} className="section-pb64" />
+        <Intro />
+        <Steps />
+        {/* <Program /> */}
+        <About />
+        {/* <Review className="section-pb64" /> */}
+        {/* <Clients /> */}
+        {/* <Workouts /> */}
+        {/* <Lifestyle /> */}
+        <Plan />
+        <Faq />
+        <Blog />
+        <Offer className="section" />
+      </Suspense>
     </>
   );
 };

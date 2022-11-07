@@ -188,7 +188,7 @@ const Headers = () => {
                     setValue={setVisibleNav}
                   />
                 ) : x.href ?
-                  <a className={styles.link} target="_blank" rel="noreferrer" href={x.href}>
+                  <a key={index} className={styles.link} target="_blank" rel="noreferrer" href={x.href}>
 
                     {t("download")}
                   </a>

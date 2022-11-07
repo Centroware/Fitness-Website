@@ -28,22 +28,6 @@ const Post = () => {
           <div className={styles.col}>
             <h2 className={cn("h2", styles.title)}>{t("post.title")}</h2>
             <div className={styles.info}>{t("post.desc")}</div>
-            {/* <div className={styles.preview}>
-              <img src="/images/content/post-pic.png" alt="Post pic" />
-            </div>
-            <div className={styles.content}>
-              <p>
-                The Stacks series of products: Stacks: Landing Page Kit, Stacks:
-                Portfolio Kit, Stacks: eCommerce Kit. "Stacks is a
-                production-ready library of stackable content blocks built in
-                React Native.
-              </p>
-              <p>
-                Mix-and-match dozens of responsive elements to quickly configure
-                your favorite landing page layouts or hit the ground running
-                with 10 pre-built templates, all in light or dark mode."
-              </p>
-            </div> */}
           </div>
         </div>
       </div>
