@@ -207,13 +207,15 @@ const Blog = ({ mainPage }) => {
     async function getData(limit, offset) {
         setLoading(true);
         const res = await getBlogs(limit, offset);
-        const blogsCategories = await getBlogsCategories();
+        if (!offset) {
+            const blogsCategories = await getBlogsCategories();
+            setBlogsCategories(blogsCategories);
+        }
 
         if (!res.next)
             setBlogsCount({ ...blogsCount, reachedEnd: true });
 
         setBlogs(blogs.concat(res.result));
-        setBlogsCategories(blogsCategories);
         setLoading(false);
     }
 

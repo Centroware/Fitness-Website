@@ -4,6 +4,7 @@ import styles from "./Hero.module.sass";
 import History from "./History";
 import Item from "./Item";
 import ScrollParallax from "../../../components/ScrollParallax";
+import { useTranslation } from "react-i18next";
 
 const items = [
   {
@@ -189,13 +190,15 @@ const items = [
 ];
 
 const Hero = () => {
+  const { t } = useTranslation("lifestyle");
   const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <div className={cn("section", styles.section)}>
       <div className={cn("container", styles.container)}>
-        <h2 className={cn("hero", styles.title)}>Lifestyle</h2>
+        <h2 className={cn("hero", styles.title)}>{t("title")}</h2>
         <div className={styles.info}>
-          A new fitness experience for everyone
+          {t("desc")}
         </div>
         <History />
         <div className={styles.nav}>

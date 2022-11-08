@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import cn from "classnames";
 import styles from "./Hero.module.sass";
 import { getContent } from "../../../helpers.js";
+import Spinner from "../../../components/Spinner";
+import { useTranslation } from "react-i18next";
 
 // const content = [
 //   {
@@ -31,14 +33,19 @@ import { getContent } from "../../../helpers.js";
 // ];
 
 const Hero = () => {
+  const { t } = useTranslation("privacy");
   const [content, setContent] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getPrivacyContent() {
+      setLoading(true);
       try {
         const content = await getContent("privacy");
         setContent(content);
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         console.log(error);
       }
     }
@@ -48,14 +55,14 @@ const Hero = () => {
   return (
     <div className={cn("section", styles.section)}>
       <div className={cn("container", styles.container)}>
-        <h2 className={cn("hero", styles.title)}>Privacy Policy</h2>
+        <h2 className={cn("hero", styles.title)}>{t("title")}</h2>
         <div className={styles.info}>
-          This policy is subject to permanent change and development, please review it periodically
+          {t("desc")}
         </div>
 
         <div className={styles.containerContent}>
           <div className={styles.content}>
-            {content}
+            {loading ? <Spinner /> : content}
           </div>
         </div>
       </div>
