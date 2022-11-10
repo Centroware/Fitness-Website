@@ -205,18 +205,23 @@ const Blog = ({ mainPage }) => {
     const [loading, setLoading] = useState(false);
 
     async function getData(limit, offset) {
-        setLoading(true);
-        const res = await getBlogs(limit, offset);
-        if (!offset) {
-            const blogsCategories = await getBlogsCategories();
-            setBlogsCategories(blogsCategories);
+        try {
+            setLoading(true);
+            const res = await getBlogs(limit, offset);
+            if (!offset) {
+                const blogsCategories = await getBlogsCategories();
+                setBlogsCategories(blogsCategories);
+            }
+
+            if (!res.next)
+                setBlogsCount({ ...blogsCount, reachedEnd: true });
+
+            setBlogs(blogs.concat(res.result));
+            setLoading(false);
+        } catch (error) {
+            console.log(error);
+            setLoading(false);
         }
-
-        if (!res.next)
-            setBlogsCount({ ...blogsCount, reachedEnd: true });
-
-        setBlogs(blogs.concat(res.result));
-        setLoading(false);
     }
 
     useEffect(() => {
@@ -231,11 +236,11 @@ const Blog = ({ mainPage }) => {
         });
     };
 
-    if (loading && !blogs.length) return <Spinner />;
+    if (loading) return <Spinner />;
+    if (!blogs.length) return null;
 
     let ApiItems = blogsCategories.map(cat => {
         const items = blogs.filter(blog => blog.category.title === cat.title);
-        console.log();
         return {
             title: (i18n.resolvedLanguage === "en" ? cat.title_en || "General" : cat.title_ar || "عام"),
             items

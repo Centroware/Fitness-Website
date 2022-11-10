@@ -77,13 +77,14 @@ const Footer = () => {
         <div className={cn("container", styles.container)}>
           <div className={styles.col}>
             <div className={i18n.resolvedLanguage === "en" ? styles.box : styles.boxRtl}>
-              <Link className={styles.logo} to="/">
+              <Link className={i18n.resolvedLanguage === "en" ? styles.logo : styles.logoRtl} to="/">
                 <Image
                   className={styles.pic}
-                  src="/images/logo-miran.png"
-                  srcDark="/images/logo-miran.png"
+                  src="/images/Icon-light.jpg"
+                  srcDark="/images/Icon-dark.png"
                   alt="Miran"
                 />
+                <h2 className={styles.miran}>{t("miran")}</h2>
               </Link>
               <Theme className={styles.theme} />
             </div>

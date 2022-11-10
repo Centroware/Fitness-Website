@@ -171,10 +171,11 @@ const Headers = () => {
         >
           <Image
             className={styles.pic}
-            src="/images/logo-miran.png"
-            srcDark="/images/logo-miran.png"
+            src="/images/Icon-light.jpg"
+            srcDark="/images/Icon-dark.png"
             alt="Miran"
           />
+          <h2 className={styles.miran}>{t("miran")}</h2>
         </Link>
         <div className={cn(i18n.resolvedLanguage === "en" ? styles.wrap : styles.wrapRtl, { [styles.active]: visibleNav })}>
           <nav className={styles.nav}>

@@ -11,7 +11,7 @@ const items = [
     color: "#3772FF",
     images: "/images/content/download.svg",
     content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
-    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
+    content_ar: "مع ميران تتبع تدريباتك واحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
   },
   {
     title_en: "Choose your trainner",
@@ -19,7 +19,7 @@ const items = [
     color: "#9757D7",
     images: "/images/content/whistle.svg",
     content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
-    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
+    content_ar: "مع ميران تتبع تدريباتك واحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
 
   },
   {
@@ -28,7 +28,7 @@ const items = [
     color: "#EF466F",
     images: "/images/content/medal.svg",
     content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
-    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
+    content_ar: "مع ميران تتبع تدريباتك واحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
 
   },
   {
@@ -37,7 +37,7 @@ const items = [
     color: "#45B26B",
     images: "/images/content/stopwatch.svg",
     content_en: "Fitness Pro tracks your workouts, get better results, and be the best version of you.",
-    content_ar: "مع ميران تتبع تدريباتك وايحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
+    content_ar: "مع ميران تتبع تدريباتك واحصل على نتائج أفضل وكوَّن أفضل نسخة من نفسك.",
   },
 ];
 

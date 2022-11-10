@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import Slider from "react-slick";
 import styles from "./History.module.sass";
+import { getStories } from "../../../../helpers";
+import { useTranslation } from "react-i18next";
+import Spinner from "../../../../components/Spinner";
 
 const items = [
   {
@@ -48,6 +51,8 @@ const SlickArrow = ({ currentSlide, slideCount, children, ...props }) => (
 );
 
 const History = () => {
+  const { i18n, t } = useTranslation("lifestyle");
+
   const settings = {
     infinite: false,
     speed: 500,
@@ -58,34 +63,56 @@ const History = () => {
     adaptiveHeight: true,
   };
 
+  const [loading, setLoading] = useState(false);
+  const [stories, setStories] = useState([]);
+
+  async function getData() {
+    try {
+      setLoading(true);
+      const stories = await getStories();
+
+      setStories(stories);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  if (loading) return <Spinner />;
+  if (!stories.length) return null;
+
   return (
     <div className={styles.history}>
       <div className={styles.wrap}>
         <Slider className="history-slider" {...settings}>
-          {items.map((x, index) => (
+          {stories.map((x, index) => (
             <div className={styles.slide} key={index}>
               <div className={cn("history-item", styles.item)}>
                 <div
                   className={styles.preview}
-                  style={{ backgroundImage: x.image }}
+                  style={{ backgroundImage: x.user_image ? `url(${x.user_image})` : "url('/images/content/history-pic-2.png')" }}
                 ></div>
                 <div className={styles.details}>
                   <div
                     className={cn(
-                      { "status-pink": x.status === "pink" },
-                      { "status-green": x.status === "green" },
+                      "status-green",
                       styles.status
                     )}
                   >
-                    {x.statusContent}
+                    {x.statusContent || "new"}
                   </div>
-                  <div className={styles.title}>{x.title}</div>
-                  <div className={styles.content}>{x.content}</div>
+                  <div className={styles.title}>{x.title || "Stories From Our Community: Kohaku & Moyo Shiro"}</div>
+                  <div className={styles.content}>{i18n.resolvedLanguage === "en" ? x.content_en : x.content_ar}</div>
                   <Link
-                    to={x.url}
+                    to={x.url || "#"}
                     className={cn("button-small", styles.button)}
                   >
-                    Read full story
+                    {t("read_story")}
                   </Link>
                 </div>
                 <div className={styles.position}>{x.position}</div>

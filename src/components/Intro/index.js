@@ -13,12 +13,12 @@ const Intro = () => {
         <div className={i18n.resolvedLanguage === "en" ? styles.gallery : styles.galleryRtl}>
           <ScrollParallax className={styles.preview} animateIn="fadeInUp">
             <img
-              srcSet="/images/content/bag@2x.png 2x"
-              src="/images/content/bag.png"
+              // srcSet="/images/content/bag@2x.png 2x"
+              src="/images/content/front-female.png"
               alt="Bag"
             />
           </ScrollParallax>
-          <ScrollParallax className={styles.preview} animateIn="fadeInUp">
+          {/* <ScrollParallax className={styles.preview} animateIn="fadeInUp">
             <img
               srcSet="/images/content/gloves@2x.png 2x"
               src="/images/content/gloves.png"
@@ -31,7 +31,7 @@ const Intro = () => {
               src="/images/content/bottle-1.png"
               alt="Bottle"
             />
-          </ScrollParallax>
+          </ScrollParallax> */}
         </div>
         <div className={styles.wrap}>
           <h2 className={cn("h1", styles.title)}>

@@ -41,6 +41,37 @@
       name="apple-itunes-app"
       content="app-id=1396961211, app-argument=https://apps.apple.com/il/app/saied/id1645341972"
     />
+
+    <!-- Start SmartBanner configuration -->
+    <meta name="smartbanner:title" content="Miran" />
+    <meta
+      name="smartbanner:author"
+      content="To take care of your health, we established Miran"
+    />
+    <meta name="smartbanner:price" content="FREE" />
+    <meta name="smartbanner:price-suffix-apple" content=" - On the App Store" />
+    <meta name="smartbanner:price-suffix-google" content=" - In Google Play" />
+    <meta
+      name="smartbanner:icon-apple"
+      content="https://url/to/apple-store-icon.png"
+    />
+    <meta
+      name="smartbanner:icon-google"
+      content="https://url/to/google-play-icon.png"
+    />
+    <meta name="smartbanner:button" content="VIEW" />
+    <meta
+      name="smartbanner:button-url-apple"
+      content="https://apps.apple.com/sa/app/miran/id1396961211"
+    />
+    <meta
+      name="smartbanner:button-url-google"
+      content="https://play.google.com/store/apps/details?id=com.miranapp.trainee"
+    />
+    <meta name="smartbanner:enabled-platforms" content="android,ios" />
+    <meta name="smartbanner:close-label" content="Close" />
+    <!-- End SmartBanner configuration -->
+
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -73,14 +104,26 @@
       href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;300;400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,100&family=Roboto+Slab:wght@500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <style>
-      /* @font-face {
-        font-family: "SFProDisplay-Bold";
-        src: url("/fonts/SFProDisplay-Bold.woff2") format("woff2"),
-          url("/fonts/SFProDisplay-Bold.woff") format("woff");
+    <link
+      rel="stylesheet"
+      href="node_modules/smartbanner.js/dist/smartbanner.min.css"
+    />
 
-        font-family: "IBM Plex Sans Arabic", sans-serif;
-      } */
+    <style>
+      @font-face {
+        font-family: "AvenirArabic-Black";
+        font-family: "ArabicUIText";
+        src: url("/fonts/ArabicUIText.ttf") format("ttf"),
+          url("/fonts/ArbFONTS-ArabicUITextBold.otf") format("OpenType"),
+          url("/fonts/ArbFONTS-ArabicUITextLight.otf") format("OpenType"),
+          url("/fonts/ArbFONTS-ArbFONTS-ArabicUITextMedium.otf")
+            format("OpenType"),
+          url("/fonts/AvenirArabic-Black.otf") format("OpenType"),
+          url("/fonts/AvenirArabic-Book.otf") format("OpenType"),
+          url("/fonts/AvenirArabic-Heavy.otf") format("OpenType"),
+          url("/fonts/AvenirArabic-Light.otf") format("OpenType"),
+          url("/fonts/AvenirArabic-Medium.otf") format("OpenType");
+      }
     </style>
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -93,6 +136,8 @@
     -->
   </head>
   <body>
+    <script src="node_modules/smartbanner.js/dist/smartbanner.min.js"></script>
+
     <script>
       // Insert this script in your index.html right after the <body> tag.
       // This will help to prevent a flash if dark mode is the default.

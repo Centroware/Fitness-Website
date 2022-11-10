@@ -42,3 +42,16 @@ export async function getBlogsCategories() {
         console.log(error);
     }
 }
+export async function getStories() {
+    try {
+        const req = await fetch(`${PROXY_SERVER_URL}/${API_URL}/blogs/stories`);
+        const res = await req.json();
+
+        if (res.status)
+            return res.result;
+
+        return null;
+    } catch (error) {
+        console.log(error);
+    }
+}

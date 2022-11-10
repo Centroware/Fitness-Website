@@ -15,19 +15,12 @@ import SingleArticle from "./screens/Article/SingleArticle";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Privacy from "./screens/Privacy";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
 
 function App() {
   const { i18n } = useTranslation();
 
-  useEffect(() => {
-    const root = document.documentElement;
-
-    root?.style.setProperty("--lang", i18n.resolvedLanguage === "en" ? "ar" : "en");
-  }, [i18n.resolvedLanguage]);
-
   return (
-    <div style={{ direction: i18n.resolvedLanguage === "ar" ? "rtl" : "ltr" }}>
+    <div style={{ direction: i18n.resolvedLanguage === "ar" ? "rtl" : "ltr", fontFamily: i18n.resolvedLanguage === "ar" ? "ArabicUIText" : "AvenirArabic-Black" }}>
       <Router>
         {/* <ErrorBoundary> */}
         <Switch>
