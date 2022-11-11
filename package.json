@@ -21,6 +21,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "react-slick": "^0.28.1",
+    "smartbanner.js": "^1.19.1",
     "tailwindcss-vanilla-rtl": "^0.3.0",
     "use-dark-mode": "^2.3.1"
   },
