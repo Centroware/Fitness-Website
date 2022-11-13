@@ -61,7 +61,7 @@ const About = () => {
                     00
                   </div>
                   <div className={styles.subtitle}>
-                    {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                    {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
                   </div>
                   <div className={styles.content}>{x.content}</div>
                 </ScrollParallax>

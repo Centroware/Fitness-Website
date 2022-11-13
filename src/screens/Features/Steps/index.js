@@ -53,19 +53,19 @@ const Steps = ({ scrollToRef }) => {
         </div>
         <div className={styles.list}>
           {items.map((x, index) => (
-            <ScrollParallax className={i18n.resolvedLanguage === "en" ? styles.item : styles.itemRtl} key={index}>
+            <ScrollParallax className={i18n.resolvedLanguage !== "ar" ? styles.item : styles.itemRtl} key={index}>
               <div
-                className={i18n.resolvedLanguage === "en" ? styles.preview : styles.previewRtl}
+                className={i18n.resolvedLanguage !== "ar" ? styles.preview : styles.previewRtl}
                 style={{ backgroundColor: x.color }}
               >
                 <img src={x.images} alt={`Step ${index}`} />
               </div>
               <div className={styles.number}>{t("intro.step")} {index + 1}</div>
               <div className={styles.subtitle}>
-                {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
               </div>
               <div className={styles.content}>
-                {i18n.resolvedLanguage === "en" ? x.content_en : x.content_ar}
+                {i18n.resolvedLanguage !== "ar" ? x.content_en : x.content_ar}
               </div>
             </ScrollParallax>
           ))}

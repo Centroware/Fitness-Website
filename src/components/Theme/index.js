@@ -9,7 +9,7 @@ const Theme = ({ className }) => {
   const darkMode = useDarkMode(false);
 
   return (
-    <label className={cn(i18next.resolvedLanguage === "en" ? styles.theme : styles.themeRtl)}>
+    <label className={cn(i18next.resolvedLanguage !== "ar" ? styles.theme : styles.themeRtl)}>
       <input
         className={styles.input}
         checked={darkMode.value}

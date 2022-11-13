@@ -165,7 +165,7 @@ const Headers = () => {
     <header className={styles.header}>
       <div className={cn("container", styles.container)}>
         <Link
-          className={i18n.resolvedLanguage === "en" ? styles.logo : styles.logoRtl}
+          className={i18n.resolvedLanguage !== "ar" ? styles.logo : styles.logoRtl}
           to="/"
           onClick={() => setVisibleNav(false)}
         >
@@ -177,7 +177,7 @@ const Headers = () => {
           />
           <h2 className={styles.miran}>{t("miran")}</h2>
         </Link>
-        <div className={cn(i18n.resolvedLanguage === "en" ? styles.wrap : styles.wrapRtl, { [styles.active]: visibleNav })}>
+        <div className={cn(i18n.resolvedLanguage !== "ar" ? styles.wrap : styles.wrapRtl, { [styles.active]: visibleNav })}>
           <nav className={styles.nav}>
             <>
               {navLinks.map((x, index) =>
@@ -201,7 +201,7 @@ const Headers = () => {
                       key={index}
                       onClick={() => setVisibleNav(false)}
                     >
-                      {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                      {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
                     </NavLink>
                   )
               )}
@@ -246,7 +246,7 @@ const Headers = () => {
         <button
           className={cn(" button-small", styles.lang)}
           onClick={() =>
-            i18n.changeLanguage(i18n.resolvedLanguage === "en" ? "ar" : "en")
+            i18n.changeLanguage(i18n.resolvedLanguage !== "ar" ? "ar" : "en")
           }
         >
           {t("lang")}

@@ -242,7 +242,7 @@ const Blog = ({ mainPage }) => {
     let ApiItems = blogsCategories.map(cat => {
         const items = blogs.filter(blog => blog.category.title === cat.title);
         return {
-            title: (i18n.resolvedLanguage === "en" ? cat.title_en || "General" : cat.title_ar || "عام"),
+            title: (i18n.resolvedLanguage !== "ar" ? cat.title_en || "General" : cat.title_ar || "عام"),
             items
         };
     });

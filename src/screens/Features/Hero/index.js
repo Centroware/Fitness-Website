@@ -24,7 +24,7 @@ const Hero = ({ scrollToRef }) => {
             {t("hero.text")}
           </div>
           <div className={styles.btns}>
-            <Link className={cn("button", i18n.resolvedLanguage === "en" ? styles.button : styles.buttonRtl)} to="/download">
+            <Link className={cn("button", i18n.resolvedLanguage !== "ar" ? styles.button : styles.buttonRtl)} to="/download">
               {t("hero.donwload_app")}
             </Link>
             <Link
@@ -41,7 +41,7 @@ const Hero = ({ scrollToRef }) => {
           }
           className={styles.scroll}
         />
-        <div className={cn(i18n.resolvedLanguage === "en" ? styles.gallery : styles.galleryRtl)}>
+        <div className={cn(i18n.resolvedLanguage !== "ar" ? styles.gallery : styles.galleryRtl)}>
           <div className={styles.preview}>
             <Image
               srcSet="/images/content/main-miran.png"

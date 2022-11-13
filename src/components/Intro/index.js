@@ -10,7 +10,7 @@ const Intro = () => {
   return (
     <div className={cn("section-bg", styles.section)} >
       <div className={cn("container", styles.container)}>
-        <div className={i18n.resolvedLanguage === "en" ? styles.gallery : styles.galleryRtl}>
+        <div className={i18n.resolvedLanguage !== "ar" ? styles.gallery : styles.galleryRtl}>
           <ScrollParallax className={styles.preview} animateIn="fadeInUp">
             <img
               // srcSet="/images/content/bag@2x.png 2x"

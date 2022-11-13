@@ -17,7 +17,7 @@ const Item = ({ item }) => {
         onClick={() => setVisible(!visible)}
       >
         <div className={styles.title}>
-          {i18n.resolvedLanguage === "en" ? item.title_en : item.title_ar}
+          {i18n.resolvedLanguage !== "ar" ? item.title_en : item.title_ar}
         </div>
         <div className={styles.arrow}>
           <Icon name="arrow-bottom" size="10" />

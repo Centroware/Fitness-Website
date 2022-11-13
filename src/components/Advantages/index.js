@@ -46,7 +46,7 @@ const Advantages = ({ scrollToRef, className }) => {
                 <img srcSet={`${x.image2x} 2x`} src={x.image} alt="Equipment" />
               </div>
               <div className={styles.subtitle}>
-                {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
               </div>
             </ScrollParallax>
           ))}

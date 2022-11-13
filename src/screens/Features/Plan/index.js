@@ -222,8 +222,8 @@ const Plan = () => {
                   <div className={styles.divider}></div>
                   {type.price && (
                     <>
-                      <div className={i18n.resolvedLanguage === "en" ? styles.cost : styles.costRtl}>
-                        <span className={i18n.resolvedLanguage === "en" ? styles.sign : styles.signRtl}>SR</span>{" "}
+                      <div className={i18n.resolvedLanguage !== "ar" ? styles.cost : styles.costRtl}>
+                        <span className={i18n.resolvedLanguage !== "ar" ? styles.sign : styles.signRtl}>SR</span>{" "}
                         <span className={styles.price}>{type.price}<span className={styles.usd}> SAR</span></span>
                       </div>
                       <div className={styles.note}>{type.note}</div>
@@ -238,7 +238,7 @@ const Plan = () => {
                     onClick={() => handleClick(index)}
                   >
                     {t("plan.see_features")}
-                    <Icon className={i18n.resolvedLanguage === "en" ? "" : styles.arrowRtl} name="arrow-bottom" size="9" />
+                    <Icon className={i18n.resolvedLanguage !== "ar" ? "" : styles.arrowRtl} name="arrow-bottom" size="9" />
                   </div>
 
                   <div

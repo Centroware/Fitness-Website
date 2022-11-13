@@ -76,8 +76,8 @@ const Footer = () => {
       <div className={styles.body}>
         <div className={cn("container", styles.container)}>
           <div className={styles.col}>
-            <div className={i18n.resolvedLanguage === "en" ? styles.box : styles.boxRtl}>
-              <Link className={i18n.resolvedLanguage === "en" ? styles.logo : styles.logoRtl} to="/">
+            <div className={i18n.resolvedLanguage !== "ar" ? styles.box : styles.boxRtl}>
+              <Link className={i18n.resolvedLanguage !== "ar" ? styles.logo : styles.logoRtl} to="/">
                 <Image
                   className={styles.pic}
                   src="/images/Icon-light.jpg"
@@ -90,7 +90,7 @@ const Footer = () => {
             </div>
             <div className={cn(styles.item, { [styles.active]: visible })}>
               <div
-                className={i18n.resolvedLanguage === "en" ? styles.category : styles.categoryRtl}
+                className={i18n.resolvedLanguage !== "ar" ? styles.category : styles.categoryRtl}
                 onClick={() => setVisible(!visible)}
               >
                 {t("footer_nav")}
@@ -104,7 +104,7 @@ const Footer = () => {
                     to={x.url}
                     key={index}
                   >
-                    {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                    {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
                   </NavLink>
                 ))}
               </div>

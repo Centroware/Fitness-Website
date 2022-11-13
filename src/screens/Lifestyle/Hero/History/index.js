@@ -107,7 +107,7 @@ const History = () => {
                     {x.statusContent || "new"}
                   </div>
                   <div className={styles.title}>{x.title || "Stories From Our Community: Kohaku & Moyo Shiro"}</div>
-                  <div className={styles.content}>{i18n.resolvedLanguage === "en" ? x.content_en : x.content_ar}</div>
+                  <div className={styles.content}>{i18n.resolvedLanguage !== "ar" ? x.content_en : x.content_ar}</div>
                   <Link
                     to={x.url || "#"}
                     className={cn("button-small", styles.button)}

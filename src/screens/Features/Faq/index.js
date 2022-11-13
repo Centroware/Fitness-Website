@@ -157,7 +157,7 @@ const Team = () => {
                 onClick={() => setCategory(x.title_en)}
                 key={index}
               >
-                {i18n.resolvedLanguage === "en" ? x.title_en : x.title_ar}
+                {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
               </button>
             ))}
           </div>

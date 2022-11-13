@@ -20,7 +20,7 @@ const Post = () => {
           </button>
         </div>
         <div className={styles.row}>
-          <div className={i18n.resolvedLanguage === "en" ? styles.col : styles.colRtl}>
+          <div className={i18n.resolvedLanguage !== "ar" ? styles.col : styles.colRtl}>
             <div className={styles.preview}>
               <img src="/images/content/diet-food.jpg" alt="diet" />
             </div>

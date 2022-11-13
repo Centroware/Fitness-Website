@@ -27,7 +27,7 @@ const Item = ({ item, className }) => {
       </div>
       <div className={styles.title}>{item.title}</div>
       <div className={styles.foot}>
-        <div className={i18n.resolvedLanguage === "en" ? styles.user : styles.userRtl}>
+        <div className={i18n.resolvedLanguage !== "ar" ? styles.user : styles.userRtl}>
           <div className={styles.avatar}>
             <img src={"/images/content/avatar-5.png"} alt="Avatar" />
           </div>
