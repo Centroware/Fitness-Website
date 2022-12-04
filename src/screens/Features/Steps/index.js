@@ -64,9 +64,9 @@ const Steps = ({ scrollToRef }) => {
               <div className={styles.subtitle}>
                 {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
               </div>
-              <div className={styles.content}>
+              {/* <div className={styles.content}>
                 {i18n.resolvedLanguage !== "ar" ? x.content_en : x.content_ar}
-              </div>
+              </div> */}
             </ScrollParallax>
           ))}
         </div>

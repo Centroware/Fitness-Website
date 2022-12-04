@@ -5,10 +5,10 @@ import Icon from "../../../../components/Icon";
 import ScrollParallax from "../../../../components/ScrollParallax";
 import { useTranslation } from "react-i18next";
 
-const Item = ({ item }) => {
+const Item = ({ item, index }) => {
   const { i18n, t } = useTranslation("features");
 
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(index === 0 ? true : false);
 
   return (
     <ScrollParallax className={styles.item}>
@@ -44,12 +44,20 @@ const Item = ({ item }) => {
               {t("faq.q.nothing")}
             </div>
             <div className={styles.content}>
-              <p>
-                {t("faq.q.desc.p1")}
-              </p>
-              <p>
-                {t("faq.q.desc.p2")}
-              </p>
+              {!item.content_en ?
+                <>
+                  <p>
+                    {t("faq.q.desc.p1")}
+                  </p>
+                  <p>
+                    {t("faq.q.desc.p2")}
+                  </p>
+                </>
+                :
+                <p>
+                  {i18n.resolvedLanguage !== "ar" ? item.content_en : item.content_ar}
+                </p>
+              }
             </div>
             <button className={cn("button-stroke button-small", styles.button)}>
               {t("faq.q.learn_more")}

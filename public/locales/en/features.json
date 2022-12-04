@@ -62,11 +62,11 @@
     },
     "q": {
       "nothing": "You don’t need to do anything else",
+      "learn_more": "Learn more",
       "desc": {
         "p1": "Mix-and-match dozens of responsive elements to quickly configure your favorite landing page layouts.",
         "p2": "Or hit the ground running with 10 pre-built templates, all in light or dark mode."
-      },
-      "learn_more": "Learn more"
+      }
     }
   },
   "offer": {
