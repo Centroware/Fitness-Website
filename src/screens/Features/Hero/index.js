@@ -24,9 +24,9 @@ const Hero = ({ scrollToRef }) => {
             {t("hero.text")}
           </div>
           <div className={styles.btns}>
-            <Link className={cn("button", i18n.resolvedLanguage !== "ar" ? styles.button : styles.buttonRtl)} to="/download">
+            <a href="https://miranapp.app.link/Eoqt0wlsJub" rel="noreferrer" target="_blank" className={cn("button", i18n.resolvedLanguage !== "ar" ? styles.button : styles.buttonRtl)} to="/download">
               {t("hero.donwload_app")}
-            </Link>
+            </a>
             <Link
               className={cn("button-stroke", styles.button)}
               to="/class02-details"

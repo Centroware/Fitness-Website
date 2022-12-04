@@ -26,7 +26,7 @@ const About = () => {
   const items = [
     {
       title_en: "About Miran",
-      title_ar: "عن ميران",
+      title_ar: "عن مران",
       content,
       color: "#9757D7",
     }

@@ -40,9 +40,9 @@ const Intro = () => {
           <div className={styles.text}>
             {t("intro.desc")}
           </div>
-          <Link className={cn("button", styles.button)} to="/download">
+          <a href="https://miranapp.app.link/Eoqt0wlsJub" rel="noreferrer" target="_blank" className={cn("button", styles.button)}>
             {t("intro.start_trial")}
-          </Link>
+          </a>
         </div>
       </div>
     </div>

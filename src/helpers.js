@@ -8,6 +8,7 @@ export async function getContent(collection) {
             "App-version": "2.2.9"
         }
     });
+
     const res = await req.json();
 
     if (res.status)

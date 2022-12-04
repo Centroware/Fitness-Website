@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
 import { Link } from "react-router-dom";
-import { API_URL, PROXY_SERVER_URL } from "../../../config";
+import { API_URL, AUTH_TOKEN, PROXY_SERVER_URL } from "../../../config";
 import { useTranslation } from "react-i18next";
 
 const options = [
@@ -68,7 +68,7 @@ const Plan = () => {
           method: "get",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": "Token 072c30a0dd1d04ee6379a3d00ea45a59ec0e0ee3",
+            "Authorization": `Token ${AUTH_TOKEN}`,
             "App-version": "2.2.9"
           }
         });
@@ -104,26 +104,26 @@ const Plan = () => {
   }, []);
 
   const data = [
-    {
-      title: t("plan.free.title"),
-      color: "#23262F",
-      description: t("plan.free.desc"),
-      price: "0",
-      note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
-      button: t("plan.btns.get_started"),
-      options: [
-        "true",
-        "true",
-        "true",
-        "false",
-        "true",
-        "true",
-        "false",
-        "false",
-        "false",
-        "false",
-      ],
-    },
+    // {
+    //   title: t("plan.free.title"),
+    //   color: "#23262F",
+    //   description: t("plan.free.desc"),
+    //   price: "0",
+    //   note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
+    //   button: t("plan.btns.get_started"),
+    //   options: [
+    //     "true",
+    //     "true",
+    //     "true",
+    //     "false",
+    //     "true",
+    //     "true",
+    //     "false",
+    //     "false",
+    //     "false",
+    //     "false",
+    //   ],
+    // },
     {
       title: t("plan.prime.title"),
       tag: t("plan.prime.popular"),

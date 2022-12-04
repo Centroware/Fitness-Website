@@ -16,7 +16,7 @@ const items = [
       },
       {
         title_en: "What is the status of my Fitness Pro membership?",
-        title_ar: "ما هي حالة عضويتي في ميران برايم؟",
+        title_ar: "ما هي حالة عضويتي في مران برايم؟",
       },
       {
         title_en: "How old does my child need to be to participate in class?",
@@ -46,7 +46,7 @@ const items = [
       },
       {
         title_en: "What is the status of my Fitness Pro membership?",
-        title_ar: "ما هي حالة عضويتي في ميران برايم؟",
+        title_ar: "ما هي حالة عضويتي في مران برايم؟",
       },
       {
         title_en: "How old does my child need to be to participate in class?",
@@ -76,7 +76,7 @@ const items = [
       },
       {
         title_en: "What is the status of my Fitness Pro membership?",
-        title_ar: "ما هي حالة عضويتي في ميران برايم؟",
+        title_ar: "ما هي حالة عضويتي في مران برايم؟",
       },
       {
         title_en: "How old does my child need to be to participate in class?",
@@ -106,7 +106,7 @@ const items = [
       },
       {
         title_en: "What is the status of my Fitness Pro membership?",
-        title_ar: "ما هي حالة عضويتي في ميران برايم؟",
+        title_ar: "ما هي حالة عضويتي في مران برايم؟",
       },
       {
         title_en: "How old does my child need to be to participate in class?",

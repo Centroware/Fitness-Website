@@ -34,7 +34,7 @@ const menu = [
   {
     title_en: "Download",
     title_ar: "تنزيل التطبيق",
-    url: "/download",
+    href: "https://miranapp.app.link/Eoqt0wlsJub",
   },
 ];
 
@@ -98,14 +98,19 @@ const Footer = () => {
               </div>
               <div className={styles.menu}>
                 {menu.map((x, index) => (
-                  <NavLink
-                    className={styles.link}
-                    activeClassName={styles.active}
-                    to={x.url}
-                    key={index}
-                  >
-                    {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
-                  </NavLink>
+                  x.href ?
+                    <a key={index} className={styles.link} target="_blank" rel="noreferrer" href={x.href}>
+
+                      {t("download")}
+                    </a> :
+                    <NavLink
+                      className={styles.link}
+                      activeClassName={styles.active}
+                      to={x.url}
+                      key={index}
+                    >
+                      {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}
+                    </NavLink>
                 ))}
               </div>
             </div>
