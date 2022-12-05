@@ -225,7 +225,7 @@ const Plan = () => {
                       <div className={styles.item} key={optionIndex}>
                         {option.items.map((item, itemIndex) => (
                           <div className={styles.parameter} key={itemIndex}>
-                            <div className={styles.label}>{i18n.resolvedLanguage !== "ar" ? item.title_en : item.title_ar}</div>
+                            <div className={styles.option}>{i18n.resolvedLanguage !== "ar" ? item.title_en : item.title_ar}</div>
                             {renderContent(type.options[itemIndex])}
                           </div>
                         ))}
