@@ -14,7 +14,7 @@ const items = [
         title_en: "What does Miran offer?",
         title_ar: "ماذا توفر مران؟",
         content_en: "Miran provides the biggest off-line library of videos for your workout",
-        content_ar: "مران توفر أكبر مكتبة فيديوهات توضيحية لتمارينك بدون الحاجة الى الانترنت، انضم الى أكثر من مليون رياضي مع أفضل المدربين وخبراء التغذية بأسهل طريقة في يدك بتقنية الذكاء الاصطناعي"
+        content_ar: "مران توفر أكبر مكتبة فيديوهات توضيحية لتمارينك بدون الحاجة الى الانترنت، انضم إلى أكثر من مليون رياضي مع أفضل المدربين وخبراء التغذية بأسهل طريقة في يدك بتقنية الذكاء الاصطناعي"
       },
       {
         title_en: "How do I register for an in-person class?",

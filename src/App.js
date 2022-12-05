@@ -20,7 +20,7 @@ function App() {
   const { i18n } = useTranslation();
 
   return (
-    <div style={{ direction: i18n.resolvedLanguage === "ar" ? "rtl" : "ltr", fontFamily: i18n.resolvedLanguage === "ar" ? "ArabicUIText" : "AvenirArabic-Black" }}>
+    <div style={{ direction: i18n.resolvedLanguage !== "ar" ? "ltr" : "rtl", fontFamily: i18n.resolvedLanguage !== "ar" ? "SFProDisplay-Bold, sans-serif" : "ArabicUIText" }}>
       <Router>
         {/* <ErrorBoundary> */}
         <Switch>

@@ -53,7 +53,7 @@
     //         background: $neutrals3 
 
 .label
-    margin-left: 10px    
+    // margin-left: 10px    
 
     +m
         padding: 48px 32px 64px
@@ -191,16 +191,20 @@
 .tick
     display: flex
     align-items: center
-    height: 45px
+    margin-bottom: 10px
+    justify-content: space-between  
+    min-height: 45px
     // border-bottom: 1px solid $neutrals6
     // +dark
         // border-color: $neutrals2
     svg
         fill: $green
-
+        min-height: 10px
+        min-width: 10px
+        margin-right: 5px
 .label
-    margin-right: auto
     font-weight: 600
+    width: 100%
     
 .hint
     position: relative
@@ -257,7 +261,7 @@
 
 .minus
     padding: 0 2px
-    font-size: 18px
+    font-size: 20px
     font-weight: 600
     color: $pink  
 

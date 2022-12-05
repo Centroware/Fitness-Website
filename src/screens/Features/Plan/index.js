@@ -11,45 +11,30 @@ const options = [
     title: "Main features",
     items: [
       {
-        title: "Time-Trackers",
+        title_en: "Tailored programs designed by elite coaches",
+        title_ar: "برامج رياضية معدة من قبل مدربين محترفين",
         description: "Some Text",
       },
       {
-        title: "Exclusive Music",
+        title_en: "Our expert system can create a totally individualize program",
+        title_ar: "تمارين مخصصة حسب أهدافك.",
         description: "Some Text",
       },
       {
-        title: "E-books",
+        title_en: "Exercise selections based on your specific need with thousands of variations",
+        title_ar: "تمارين متنوعة وخيارات حسب الأدوات المتوفرة عندك.",
         description: "Some Text",
       },
       {
-        title: "Documents",
+        title_en: "A customized diet based on your caloric intake and your preferences",
+        title_ar: "نظام غذائي مخصص لك، حسب احتياجك وتفضيلك.",
         description: "Some Text",
       },
       {
-        title: "Premium Tutorial",
+        title_en: "Chat to trainers",
+        title_ar: "التحدث إلى المدربين",
         description: "Some Text",
-      },
-      {
-        title: "Client Support",
-        description: "Some Text",
-      },
-      {
-        title: "Premium Courses",
-        description: "Some Text",
-      },
-      {
-        title: "User support",
-        description: "Some Text",
-      },
-      {
-        title: "Chat to trainers",
-        description: "Some Text",
-      },
-      {
-        title: "Unlimited Videos",
-        description: "Some Text",
-      },
+      }
     ],
   },
 ];
@@ -126,7 +111,6 @@ const Plan = () => {
     // },
     {
       title: t("plan.prime.title"),
-      tag: t("plan.prime.popular"),
       color: "#23262F",
       description: t("plan.prime.desc"),
       price: plan === 0 ? plans["1monthPrime"]?.price : plans["3monthPrime"]?.price,
@@ -137,17 +121,13 @@ const Plan = () => {
         "true",
         "true",
         "true",
-        "true",
-        "true",
-        "true",
-        "true",
-        "false",
-        "false",
+        "false"
       ],
     },
     {
       title: t("plan.prime+.title"),
       color: "#23262F",
+      tag: t("plan.prime.popular"),
       description: t("plan.prime+.desc"),
       price: plan === 0 ? plans["1monthPrime+"]?.price : plans["3monthPrime+"]?.price,
       note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
@@ -157,12 +137,7 @@ const Plan = () => {
         "true",
         "true",
         "true",
-        "true",
-        "true",
-        "true",
-        "true",
-        "true",
-        "true",
+        "true"
       ],
     },
   ];
@@ -176,10 +151,10 @@ const Plan = () => {
 
   const renderContent = (content) => {
     if (content === "true") {
-      return <Icon className={styles.check} name="check" size="14" />;
+      return <Icon className={styles.check} name="check" size="16" />;
     }
     if (content === "false") {
-      return <div className={styles.minus}>×</div>;
+      return <div className={styles.minus} size="16">×</div>;
     }
     return <div className={styles.minus}>{content}</div>;
   };
@@ -250,8 +225,8 @@ const Plan = () => {
                       <div className={styles.item} key={optionIndex}>
                         {option.items.map((item, itemIndex) => (
                           <div className={styles.parameter} key={itemIndex}>
+                            <div className={styles.label}>{i18n.resolvedLanguage !== "ar" ? item.title_en : item.title_ar}</div>
                             {renderContent(type.options[itemIndex])}
-                            <div className={styles.label}>{item.title}</div>
                           </div>
                         ))}
                       </div>
