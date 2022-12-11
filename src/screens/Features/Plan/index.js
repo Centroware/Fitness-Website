@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
 import { Link } from "react-router-dom";
-import { API_URL, AUTH_TOKEN, PROXY_SERVER_URL } from "../../../config";
+import { API_URL, PLAN_AUTH_TOKEN, PROXY_SERVER_URL } from "../../../config";
 import { useTranslation } from "react-i18next";
 
 const options = [
@@ -50,10 +50,9 @@ const Plan = () => {
     async function getPlans() {
       try {
         const req = await fetch(`${PROXY_SERVER_URL}/${API_URL}/v1/miran-plan/plan-price`, {
-          method: "get",
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `Token ${AUTH_TOKEN}`,
+            // "Authorization": ``,
             "App-version": "2.2.9"
           }
         });
