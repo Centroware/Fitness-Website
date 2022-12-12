@@ -13,10 +13,9 @@ const Item = ({ item, className }) => {
   return (
     <Link className={cn(styles.item, className)} to={{
       pathname: `/article/${item.id}`,
-      state: item.content
     }}>
       <div className={styles.preview}>
-        <img srcSet={`/images/content/lifestyle-photo-1@2x.png 2x`} src={"/images/content/lifestyle-photo-1.png"} alt={item.status} />
+        <img src={item.image} alt={item.status} />
       </div>
       <div>
         {item.tags.map(tag => {
@@ -25,7 +24,7 @@ const Item = ({ item, className }) => {
           </div>;
         })}
       </div>
-      <div className={styles.title}>{item.title}</div>
+      <div className={styles.title}>{i18n.resolvedLanguage !== "ar" ? item.title_en : item.title_ar}</div>
       <div className={styles.foot}>
         <div className={i18n.resolvedLanguage !== "ar" ? styles.user : styles.userRtl}>
           <div className={styles.avatar}>

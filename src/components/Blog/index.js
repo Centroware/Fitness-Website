@@ -236,11 +236,14 @@ const Blog = ({ mainPage }) => {
         });
     };
 
+
+
     if (loading) return <Spinner />;
     if (!blogs.length) return null;
 
+
     let ApiItems = blogsCategories.map(cat => {
-        const items = blogs.filter(blog => blog.category.title === cat.title);
+        const items = blogs.filter(blog => blog.category.id === cat.id);
         return {
             title: (i18n.resolvedLanguage !== "ar" ? cat.title_en || "General" : cat.title_ar || "عام"),
             items
@@ -248,8 +251,8 @@ const Blog = ({ mainPage }) => {
     });
 
     return (
-        <div className={cn("container", {
-            [styles.hero]: mainPage === true
+        <div className={cn("", {
+            // [styles.hero]: mainPage === true
         })}>
             <div>
                 <div className={styles.nav}>
@@ -265,13 +268,17 @@ const Blog = ({ mainPage }) => {
                         </button>
                     ))}
                 </div>
-                <div className={styles.list}>
-                    {ApiItems[activeIndex]?.items.slice(0, mainPage === true ? -1 : 3).map((x, index) => (
-                        <ScrollParallax className={styles.box} key={index}>
-                            <Item item={x} className={styles.item} />
-                        </ScrollParallax>
-                    ))}
-                </div>
+                {ApiItems[activeIndex]?.items.length > 0 ?
+                    <div className="p-10 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-10">
+                        {ApiItems[activeIndex].items.slice(0, mainPage === true ? -1 : 3).concat(ApiItems[activeIndex].items).map((x, index) => (
+                            <div key={index}>
+                                <Item item={x} />
+                            </div>
+                        ))}
+                    </div>
+                    :
+                    <div className="text-3xl text-center my-3">{t("blog.no_blogs")}</div>}
+
                 <div className={styles.btns}>
                     <Link to="/article">
                         {!blogsCount.reachedEnd && <button disabled={loading} className={cn("button-stroke button-small", styles.button)} onClick={mainPage && loadMoreBlogs}>

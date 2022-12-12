@@ -79,6 +79,7 @@
     "start_free_trial": "Start free trial"
   },
   "blog": {
-    "load_more": "Load more"
+    "load_more": "Load more",
+    "no_blogs": "There are no blogs in this category"
   }
 }

@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
 import { Link } from "react-router-dom";
-import { API_URL, PLAN_AUTH_TOKEN, PROXY_SERVER_URL } from "../../../config";
+import { API_URL, API_VERSION, PLAN_AUTH_TOKEN, PROXY_SERVER_URL } from "../../../config";
 import { useTranslation } from "react-i18next";
 
 const options = [
@@ -52,28 +52,28 @@ const Plan = () => {
         const req = await fetch(`${PROXY_SERVER_URL}/${API_URL}/v1/miran-plan/plan-price`, {
           headers: {
             "Content-Type": "application/json",
-            // "Authorization": ``,
-            "App-version": "2.2.9"
+            "App-version": API_VERSION
           }
         });
         const res = await req.json();
 
         const plans = {};
+
         if (res.status) {
           res.result.forEach(p => {
-            if (!p.prime_trainer_included && p.period === "1")
+            if (!p.prime_trainer_included && p.period === "1") // 1 month subscription without a trainer
               plans["1monthPrime"] = {
                 price: p.price
               };
-            else if (!p.prime_trainer_included && p.period === "3")
+            else if (!p.prime_trainer_included && p.period === "3") // 3 months subscription without a trainer
               plans["3monthPrime"] = {
                 price: p.price
               };
-            else if (p.prime_trainer_included && p.period === "1")
+            else if (p.prime_trainer_included && p.period === "1") // 1 month subscription with a trainer
               plans["1monthPrime+"] = {
                 price: p.price
               };
-            else if (p.prime_trainer_included && p.period === "3")
+            else if (p.prime_trainer_included && p.period === "3") // 3 months subscription with a trainer
               plans["3monthPrime+"] = {
                 price: p.price
               };
@@ -112,7 +112,7 @@ const Plan = () => {
       title: t("plan.prime.title"),
       color: "#23262F",
       description: t("plan.prime.desc"),
-      price: plan === 0 ? plans["1monthPrime"]?.price : plans["3monthPrime"]?.price,
+      price: plan === 0 ? plans["1monthPrime"]?.price : plans["3monthPrime"]?.price, // check if the plan is 1 month(0) or 3 months(1)
       note: plan === 0 ? t("plan.per_month") : t("plan.per_3month"),
       button: t("plan.btns.get_started"),
       options: [
