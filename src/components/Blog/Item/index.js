@@ -4,6 +4,7 @@ import cn from "classnames";
 import styles from "./Item.module.sass";
 import { useTranslation } from "react-i18next";
 
+
 const Item = ({ item, className }) => {
   const { i18n } = useTranslation();
 
@@ -15,7 +16,7 @@ const Item = ({ item, className }) => {
       pathname: `/article/${item.id}`,
     }}>
       <div className={styles.preview}>
-        <img src={item.image} alt={item.status} />
+        <img src={item.image || "https://media.istockphoto.com/id/1182489122/photo/every-time-you-open-a-book-you-learn-something.jpg?b=1&s=170667a&w=0&k=20&c=y1gZ1_vM8BWevnAjgU-0oEI3_bfjUo7Vrosd_msxMvo="} alt={item.status} />
       </div>
       <div>
         {item.tags.map(tag => {
