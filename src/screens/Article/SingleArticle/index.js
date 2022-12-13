@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from "react-i18next";
 import { API_URL, PROXY_SERVER_URL } from "../../../config";
@@ -100,103 +100,105 @@ const SingleArticle = () => {
     article.updated_at = updatedAt;
 
     return (
-        <div className="w-11/12 md:w-8/12 mx-auto pt-12 min-h-[400px]">
-            {loading ? (
-                <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
-                    <Spinner />
-                </div>
-            ) : article ? (
-                <div className="flex flex-col my-5">
-                    <div className="flex gap-2 mt-2">
-                        {article.tags?.map((elem) => {
-                            return (
-                                <div key={elem.id} className={`cursor-default py-1 px-2 rounded-xl ${elem.hex_color}`}>{elem.title_en}</div>
-                            );
-                        })
-                        }
+        <Suspense fallback={<Spinner />}>
+            <div className="w-11/12 md:w-8/12 mx-auto pt-12 min-h-[400px]">
+                {loading ? (
+                    <div className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                        <Spinner />
                     </div>
-
-                    <div className="flex flex-row items-center mt-4 mb-2 gap-2">
-                        <img
-                            src={article.image}
-                            alt={article.title_en}
-                            className="w-10 h-10 rounded-full"
-                        />
-
-                        <div className="flex flex-col">
-                            <h2 className="font-semibold capitalize">
-                                {article.created_by.full_name}
-                            </h2>
-                            <h2 className="text-xs text-grey">{article.updated_at}</h2>
+                ) : article ? (
+                    <div className="flex flex-col my-5">
+                        <div className="flex gap-2 mt-2">
+                            {article.tags?.map((elem) => {
+                                return (
+                                    <div key={elem.id} className={`cursor-default py-1 px-2 rounded-xl ${elem.hex_color}`}>{elem.title_en}</div>
+                                );
+                            })
+                            }
                         </div>
-                    </div>
 
-                    <div className="relative mt-6">
-                        <img
-                            src={article.image}
-                            alt={article.title_en}
-                            className="w-full h-full rounded-lg border"
-                        />
-
-                        <div className="mt-12">
-                            <h2 className="text-3xl capitalize">
-                                {i18n.resolvedLanguage === "en" ? article.title_en : article.title_ar}
-                            </h2>
-
-                            <p
-                                className="text-grey mt-6"
-                                dangerouslySetInnerHTML={{
-                                    __html:
-                                        i18n.resolvedLanguage === "en"
-                                            ? article.content_en || " - "
-                                            : article.content_ar || " - ",
-                                }}
+                        <div className="flex flex-row items-center mt-4 mb-2 gap-2">
+                            <img
+                                src={article.image}
+                                alt={article.title_en}
+                                className="w-10 h-10 rounded-full"
                             />
+
+                            <div className="flex flex-col">
+                                <h2 className="font-semibold capitalize">
+                                    {article.created_by.full_name}
+                                </h2>
+                                <h2 className="text-xs text-grey">{article.updated_at}</h2>
+                            </div>
                         </div>
+                        <hr className="mt-5" />
+                        <div className="relative mt-6">
+                            <img
+                                src={article.image}
+                                alt={article.title_en}
+                                className="w-full h-full max-h-[570px] rounded-lg border"
+                            />
+
+                            <div className="mt-12">
+                                <h2 className="text-3xl capitalize">
+                                    {i18n.resolvedLanguage === "en" ? article.title_en : article.title_ar}
+                                </h2>
+
+                                <p
+                                    className="text-grey mt-6"
+                                    dangerouslySetInnerHTML={{
+                                        __html:
+                                            i18n.resolvedLanguage === "en"
+                                                ? article.content_en || " - "
+                                                : article.content_ar || " - ",
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <hr className="my-10" />
+                        <div className="flex flex-col gap-2">
+                            <div className="flex flex-row gap-2 items-center border-b w-full py-2">
+                                <h2 className="text-xl font-semibold">{t("share")}</h2>
+                                <BsLink45Deg size={25} />
+                            </div>
+
+                            <div className="flex flex-row gap-2 mt-1">
+                                <FacebookShareButton url={currentURL}>
+                                    <FacebookIcon round={"100%"} size={30} />
+                                </FacebookShareButton>
+
+                                <TwitterShareButton url={currentURL}>
+                                    <TwitterIcon round={"100%"} size={30} />
+                                </TwitterShareButton>
+
+                                <WhatsappShareButton url={currentURL}>
+                                    <WhatsappIcon round={"100%"} size={30} />
+                                </WhatsappShareButton>
+
+                                <TelegramShareButton url={currentURL}>
+                                    <TelegramIcon round={"100%"} size={30} />
+                                </TelegramShareButton>
+
+                                <EmailShareButton url={currentURL}>
+                                    <EmailIcon round={"100%"} size={30} />
+                                </EmailShareButton>
+
+                                <LinkedinShareButton url={currentURL}>
+                                    <LinkedinIcon round={"100%"} size={30} />
+                                </LinkedinShareButton>
+                            </div>
+
+                        </div>
+
                     </div>
-                    <hr className="my-10" />
-                    <div className="flex flex-col gap-2">
-                        <div className="flex flex-row gap-2 items-center border-b w-full py-2">
-                            <h2 className="text-xl font-semibold">{t("share")}</h2>
-                            <BsLink45Deg size={25} />
-                        </div>
-
-                        <div className="flex flex-row gap-2 mt-1">
-                            <FacebookShareButton url={currentURL}>
-                                <FacebookIcon round={"100%"} size={30} />
-                            </FacebookShareButton>
-
-                            <TwitterShareButton url={currentURL}>
-                                <TwitterIcon round={"100%"} size={30} />
-                            </TwitterShareButton>
-
-                            <WhatsappShareButton url={currentURL}>
-                                <WhatsappIcon round={"100%"} size={30} />
-                            </WhatsappShareButton>
-
-                            <TelegramShareButton url={currentURL}>
-                                <TelegramIcon round={"100%"} size={30} />
-                            </TelegramShareButton>
-
-                            <EmailShareButton url={currentURL}>
-                                <EmailIcon round={"100%"} size={30} />
-                            </EmailShareButton>
-
-                            <LinkedinShareButton url={currentURL}>
-                                <LinkedinIcon round={"100%"} size={30} />
-                            </LinkedinShareButton>
-                        </div>
-
-                    </div>
-
-                </div>
-            ) : (
-                <h2 className="absolute flex flex-col justify-center items-center top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-lg font-bold text-[red]">
-                    {/* <img src="/error.png" alt="error" /> */}
-                    {error}
-                </h2>
-            )}
-        </div>
+                ) : (
+                    <h2 className="absolute flex flex-col justify-center items-center top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] text-lg font-bold text-[red]">
+                        {/* <img src="/error.png" alt="error" /> */}
+                        {error}
+                    </h2>
+                )}
+            </div>
+        </Suspense>
     );
 };
 export default SingleArticle;
