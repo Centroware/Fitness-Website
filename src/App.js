@@ -15,6 +15,8 @@ import SingleArticle from "./screens/Article/SingleArticle";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Privacy from "./screens/Privacy";
 import { useTranslation } from "react-i18next";
+import { Suspense } from "react";
+import Spinner from "./components/Spinner";
 
 function App() {
   const { i18n } = useTranslation();
@@ -65,7 +67,9 @@ function App() {
             path="/article/:slug"
             render={() => (
               <Page>
-                <SingleArticle />
+                <Suspense fallback={<Spinner />}>
+                  <SingleArticle />
+                </Suspense>
               </Page>
             )}
           />
