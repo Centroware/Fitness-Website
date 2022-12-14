@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import Slider from "react-slick";
 import styles from "./History.module.sass";
-import { getStories } from "../../../../helpers";
+import { getFormattedDate } from "../../../../helpers";
 import { useTranslation } from "react-i18next";
 import Spinner from "../../../../components/Spinner";
+import useBlogs from "../../../../components/Blog/useBlogs";
 
 const items = [
   {
@@ -63,53 +64,43 @@ const History = () => {
     adaptiveHeight: true,
   };
 
-  const [loading, setLoading] = useState(false);
-  const [stories, setStories] = useState([]);
-
-  async function getData() {
-    try {
-      setLoading(true);
-      const stories = await getStories();
-
-      setStories(stories);
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const { loading, blogs } = useBlogs();
 
   if (loading) return <Spinner />;
-  if (!stories.length) return null;
+  if (!blogs.length) return null;
 
   return (
     <div className={styles.history}>
       <div className={styles.wrap}>
         <Slider className="history-slider" {...settings}>
-          {stories.map((x, index) => (
+          {blogs.map((x, index) => (
             <div className={styles.slide} key={index}>
               <div className={cn("history-item", styles.item)}>
                 <div
                   className={styles.preview}
-                  style={{ backgroundImage: x.user_image ? `url(${x.user_image})` : "url('/images/content/history-pic-2.png')" }}
+                  style={{ backgroundImage: x.image ? `url(${x.image})` : "url('/images/content/history-pic-2.png')" }}
                 ></div>
                 <div className={styles.details}>
-                  <div
-                    className={cn(
-                      "status-green",
-                      styles.status
-                    )}
-                  >
-                    {x.statusContent || "new"}
+                  <div>
+                    <div
+                      className="flex flex-wrap gap-3"
+                    >
+                      {x.tags.map(t => {
+                        let tag_bg_color = `bg-[#${t.hex_color}]`;
+                        return <p key={t.id} className={"py-1 px-3 rounded-lg " + tag_bg_color}>
+                          {i18n.resolvedLanguage !== "ar" ? t.title_en : t.title_ar}
+                        </p>;
+                      })}
+                    </div>
+                    <div className={styles.user}>
+                      <img src={x.user_image} alt={x.user_name} />
+                    </div>
                   </div>
-                  <div className={styles.title}>{x.title || "Stories From Our Community: Kohaku & Moyo Shiro"}</div>
+                  <div className={styles.title}> {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}</div>
                   <div className={styles.content}>{i18n.resolvedLanguage !== "ar" ? x.content_en : x.content_ar}</div>
+                  <div className={styles.content + " text-[14px]"} >{getFormattedDate(x.updated_at)}</div>
                   <Link
-                    to={x.url || "#"}
+                    to={`/article/${x.id}`}
                     className={cn("button-small", styles.button)}
                   >
                     {t("read_story")}
