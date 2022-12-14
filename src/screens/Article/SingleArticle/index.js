@@ -19,6 +19,7 @@ import {
     WhatsappShareButton,
     WhatsappIcon,
 } from "react-share";
+import { getFormattedDate } from "../../../helpers";
 
 const SingleArticle = () => {
     const { slug } = useParams();
@@ -95,10 +96,7 @@ const SingleArticle = () => {
         // getSingleArticle();
     }, []);
 
-    let updatedAt = new Date(article.updated_at);
-    updatedAt = ((updatedAt.getMonth() > 8) ? (updatedAt.getMonth() + 1) : ('0' + (updatedAt.getMonth() + 1))) + '/' + ((updatedAt.getDate() > 9) ? updatedAt.getDate() : ('0' + updatedAt.getDate())) + '/' + updatedAt.getFullYear();
-    article.updated_at = updatedAt;
-
+    article.updated_at = getFormattedDate(article.updated_at);
     return (
         <Suspense fallback={<Spinner />}>
             <div className="w-11/12 md:w-8/12 mx-auto pt-12 min-h-[400px]">
