@@ -100,10 +100,10 @@ const Plan = () => {
                   <div className={styles.divider}></div>
                   {type.price && (
                     <>
-                      <s className={styles.original + " block mb-2 text-[#8a8a8b]"}>&nbsp;{type.price} {t("plan.sar")}&nbsp;</s>
+                      {type.discount && <s className={styles.original + " block mb-2 text-[#8a8a8b]"}>&nbsp;{type.price} {t("plan.sar")}&nbsp;</s>}
                       <div className={i18n.resolvedLanguage !== "ar" ? styles.cost : styles.costRtl}>
                         <span className={i18n.resolvedLanguage !== "ar" ? styles.sign : styles.signRtl}>SR</span>{" "}
-                        <span className={styles.price}>{type.discount}<span className={styles.usd}>&nbsp;{t("plan.sar")}</span></span>
+                        <span className={styles.price}>{type.discount ?? type.price}<span className={styles.usd}>&nbsp;{t("plan.sar")}</span></span>
                       </div>
                       <div className={styles.note}>{type.note}</div>
                     </>

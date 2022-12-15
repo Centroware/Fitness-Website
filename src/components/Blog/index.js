@@ -10,12 +10,12 @@ import useBlogs from "./useBlogs";
 
 const Blog = ({ mainPage }) => {
     const { t } = useTranslation("features");
-    const { loadMoreBlogs, ApiItems, loading, blogs, blogsCount } = useBlogs();
+    const { loadMoreBlogs, blogsWithCategories, loading, blogsCount } = useBlogs();
 
     const [activeIndex, setActiveIndex] = useState(0);
 
     if (loading) return <Spinner />;
-    if (!blogs.length) return null;
+    if (!blogsWithCategories.length) return null;
 
     return (
         <div className={cn("", {
@@ -23,21 +23,22 @@ const Blog = ({ mainPage }) => {
         })}>
             <div>
                 <div className={styles.nav}>
-                    {ApiItems.map((x, index) => (
-                        <button
-                            className={cn(styles.btn, {
-                                [styles.active]: index === activeIndex,
-                            })}
-                            onClick={() => setActiveIndex(index)}
-                            key={index}
-                        >
-                            {x.title}
-                        </button>
-                    ))}
+                    {
+                        blogsWithCategories.map((x, index) => (
+                            <button
+                                className={cn(styles.btn, {
+                                    [styles.active]: index === activeIndex,
+                                })}
+                                onClick={() => setActiveIndex(index)}
+                                key={index}
+                            >
+                                {x.title}
+                            </button>
+                        ))}
                 </div>
-                {ApiItems[activeIndex]?.items.length > 0 ?
+                {blogsWithCategories[activeIndex]?.items.length > 0 ?
                     <div className="p-10 grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-10">
-                        {ApiItems[activeIndex].items.slice(0, mainPage === true ? -1 : 3).map((x, index) => (
+                        {blogsWithCategories[activeIndex].items.map((x, index) => (
                             <div key={index}>
                                 <Item item={x} />
                             </div>

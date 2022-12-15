@@ -7,8 +7,8 @@ export default function usePlans() {
     const [plans, setPlans] = useState({});
     const [plan, setPlan] = useState(0);
 
-    function getDiscount(price = 0, pct = 0.1379) {
-        const discount = price * pct;
+    function getDiscount(price = 0, pct) {
+        const discount = price * pct / 100;
         const total = price - discount;
         return +total.toFixed(0);
     }
@@ -24,7 +24,7 @@ export default function usePlans() {
             try {
                 const req = await fetch(`${PROXY_SERVER_URL}/${API_URL.replace("testing", "backend")}/v1/miran-plan/plan-price`, { headers });
                 const res = await req.json();
-
+                console.log(res.result);
                 const plans = {};
 
                 if (res.status) {
@@ -32,22 +32,22 @@ export default function usePlans() {
                         if (!p.prime_trainer_included && p.period === "1") // 1 month subscription without a trainer
                             plans["1monthPrime"] = {
                                 price: p.price,
-                                discount: getDiscount(p.price)
+                                discount: p.hint ? getDiscount(p.price, p.hint) : null
                             };
                         else if (!p.prime_trainer_included && p.period === "3") // 3 months subscription without a trainer
                             plans["3monthPrime"] = {
                                 price: p.price,
-                                discount: getDiscount(p.price)
+                                discount: p.hint ? getDiscount(p.price, p.hint) : null
                             };
                         else if (p.prime_trainer_included && p.period === "1") // 1 month subscription with a trainer
                             plans["1monthPrime+"] = {
                                 price: p.price,
-                                discount: getDiscount(p.price)
+                                discount: p.hint ? getDiscount(p.price, p.hint) : null
                             };
                         else if (p.prime_trainer_included && p.period === "3") // 3 months subscription with a trainer
                             plans["3monthPrime+"] = {
                                 price: p.price,
-                                discount: getDiscount(p.price)
+                                discount: p.hint ? getDiscount(p.price, p.hint) : null
                             };
                     });
 

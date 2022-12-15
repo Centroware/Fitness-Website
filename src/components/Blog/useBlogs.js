@@ -4,7 +4,7 @@ import { getBlogs, getBlogsCategories } from "../../helpers";
 
 export default function useBlogs() {
     const [blogs, setBlogs] = useState([]);
-    const [blogsCategories, setBlogsCategories] = useState([]);
+    const [blogsWithCategories, setblogsWithCategories] = useState([]);
     const [blogsCount, setBlogsCount] = useState({
         limit: 10,
         offset: 0,
@@ -17,15 +17,23 @@ export default function useBlogs() {
         try {
             setLoading(true);
             const res = await getBlogs(limit, offset);
+
+            let blogsCategories = [];
             if (!offset) {
-                const blogsCategories = await getBlogsCategories();
-                setBlogsCategories(blogsCategories);
+                blogsCategories = await getBlogsCategories();
             }
 
             if (!res.next)
                 setBlogsCount({ ...blogsCount, reachedEnd: true });
 
-            setBlogs(blogs.concat(res.result));
+            const blogsWithCategories = blogsCategories?.map(cat => {
+                const items = blogs.concat(res.result).filter(blog => blog.category.id === cat.id);
+                return {
+                    title: (i18next.resolvedLanguage !== "ar" ? cat.title_en || "General" : cat.title_ar || "عام"),
+                    items
+                };
+            });
+            setblogsWithCategories(blogsWithCategories);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -46,13 +54,7 @@ export default function useBlogs() {
     };
 
 
-    let ApiItems = blogsCategories?.map(cat => {
-        const items = blogs.filter(blog => blog.category.id === cat.id);
-        return {
-            title: (i18next.resolvedLanguage !== "ar" ? cat.title_en || "General" : cat.title_ar || "عام"),
-            items
-        };
-    });
 
-    return { loadMoreBlogs, ApiItems, loading, blogs, blogsCount };
+
+    return { loadMoreBlogs, blogsWithCategories, loading, blogs, blogsCount };
 }
