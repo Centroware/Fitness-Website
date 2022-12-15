@@ -24,7 +24,7 @@ export default function usePlans() {
             try {
                 const req = await fetch(`${PROXY_SERVER_URL}/${API_URL.replace("testing", "backend")}/v1/miran-plan/plan-price`, { headers });
                 const res = await req.json();
-                console.log(res.result);
+
                 const plans = {};
 
                 if (res.status) {

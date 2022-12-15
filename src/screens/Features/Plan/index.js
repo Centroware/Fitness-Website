@@ -76,13 +76,13 @@ const Plan = () => {
           <div className={styles.selector}>
             <button
               onClick={() => setPlan(0)}
-              className={cn({ [styles.planButtonActive]: plan == 0 }, styles.planButton)}
+              className={cn({ [styles.planButtonActive]: plan === 0 }, styles.planButton)}
             >
               {t("plan.btns.1month")}
             </button>
             <button
               onClick={() => setPlan(1)}
-              className={cn({ [styles.planButtonActive]: plan == 1 }, styles.planButton)}
+              className={cn({ [styles.planButtonActive]: plan === 1 }, styles.planButton)}
             >
               {t("plan.btns.3month")}
             </button>

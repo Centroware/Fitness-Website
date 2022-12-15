@@ -229,20 +229,24 @@ const Headers = () => {
                 </a>
               ))}
             </div>
-            <Link
+            <a
               className={cn("button-stroke button-small", styles.button)}
-              to="/"
+              href="https://miranapp.app.link/Eoqt0wlsJub"
+              target="_blank"
+              rel="noreferrer"
             >
               {t("free_trial")}
-            </Link>
+            </a>
           </div>
         </div>
-        <Link
+        <a
           className={cn("button-stroke button-small", styles.button)}
-          to="/download"
+          href="https://miranapp.app.link/Eoqt0wlsJub"
+          target="_blank"
+          rel="noreferrer"
         >
           {t("free_trial")}
-        </Link>
+        </a>
         <button
           className={cn(" button-small", styles.lang)}
           onClick={() =>

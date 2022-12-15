@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getBlogs, getBlogsCategories } from "../../helpers";
 
 export default function useBlogs() {
-    const [blogs, setBlogs] = useState([]);
+    const [blogs] = useState([]);
     const [blogsWithCategories, setblogsWithCategories] = useState([]);
     const [blogsCount, setBlogsCount] = useState({
         limit: 10,
@@ -43,6 +43,7 @@ export default function useBlogs() {
 
     useEffect(() => {
         getData();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const loadMoreBlogs = () => {

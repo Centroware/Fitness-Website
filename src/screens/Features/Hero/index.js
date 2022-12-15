@@ -1,6 +1,5 @@
 import React from "react";
 import cn from "classnames";
-import { Link } from "react-router-dom";
 import styles from "./Hero.module.sass";
 import ScrollButton from "../../../components/ScrollButton";
 import Image from "../../../components/Image";
@@ -24,15 +23,17 @@ const Hero = ({ scrollToRef }) => {
             {t("hero.text")}
           </div>
           <div className={styles.btns}>
-            <a href="https://miranapp.app.link/Eoqt0wlsJub" rel="noreferrer" target="_blank" className={cn("button", i18n.resolvedLanguage !== "ar" ? styles.button : styles.buttonRtl)} to="/download">
+            <a
+              className={cn("button", i18n.resolvedLanguage !== "ar" ? styles.button : styles.buttonRtl)} to="/download"
+              href="https://miranapp.app.link/Eoqt0wlsJub"
+              rel="noreferrer" target="_blank">
               {t("hero.donwload_app")}
             </a>
-            <Link
+            <a
               className={cn("button-stroke", styles.button)}
-              to="/class02-details"
-            >
+              href="https://miranapp.app.link/Eoqt0wlsJub" rel="noreferrer" target="_blank"             >
               {t("hero.book_class")}
-            </Link>
+            </a>
           </div>
         </div>
         <ScrollButton

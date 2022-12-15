@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import cn from "classnames";
 import styles from "./Blog.module.sass";
-import ScrollParallax from "../ScrollParallax";
 import Item from "./Item";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
