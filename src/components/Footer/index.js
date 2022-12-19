@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import cn from "classnames";
 import styles from "./Footer.module.sass";
 import Subscription from "../Subscription";
 import Theme from "../Theme";
 import Icon from "../Icon";
 import Image from "../Image";
-import { useTranslation } from "react-i18next";
 
 const menu = [
   {
@@ -94,7 +94,7 @@ const Footer = () => {
                 onClick={() => setVisible(!visible)}
               >
                 {t("footer_nav")}
-                <Icon name="arrow-bottom" size="9" />
+                <Icon name="arrow-bottom" size="9" className={visible ? "rotate-180" : ""} />
               </div>
               <div className={styles.menu}>
                 {menu.map((x, index) => (
