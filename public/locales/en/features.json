@@ -81,6 +81,7 @@
   },
   "blog": {
     "load_more": "Load more",
+    "see_more": "More",
     "no_blogs": "There are no blogs in this category"
   }
 }

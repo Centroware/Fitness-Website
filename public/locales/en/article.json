@@ -4,5 +4,6 @@
     "title": "As easy as hitting play",
     "desc": "The Stacks series of products: Stacks: Landing Page Kit, Stacks: Portfolio Kit, Stacks: eCommerce Kit. Stacks is a production-ready library of stackable content blocks built in React Native."
   },
-  "share": "Share"
+  "share": "Share",
+  "copied": "Copied to clipboard"
 }
