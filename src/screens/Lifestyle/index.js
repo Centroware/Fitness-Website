@@ -9,7 +9,7 @@ const Lifestyle = () => {
     <>
       <Suspense fallback={<Spinner />}>
         <Hero />
-        <Community />
+        {/* <Community /> */}
       </Suspense>
     </>
   );

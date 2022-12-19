@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import cn from "classnames";
 import Slider from "react-slick";
@@ -6,7 +6,7 @@ import styles from "./History.module.sass";
 import { getFormattedDate } from "../../../../helpers";
 import { useTranslation } from "react-i18next";
 import Spinner from "../../../../components/Spinner";
-import useBlogs from "../../../../components/Blog/useBlogs";
+import { GlobalContext } from "../../../../context/global";
 
 const items = [
   {
@@ -64,7 +64,7 @@ const History = () => {
     adaptiveHeight: true,
   };
 
-  const { loading, blogs } = useBlogs();
+  const { loading, blogs } = useContext(GlobalContext);
 
   if (loading) return <Spinner />;
   if (!blogs.length) return null;

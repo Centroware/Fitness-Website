@@ -116,13 +116,13 @@ const Footer = () => {
             </div>
           </div>
           <div className={styles.col}>
-            <div className={styles.category}><p>{t("sections.contact.title")}</p></div>
+            {/* <div className={styles.category}><p>{t("sections.contact.title")}</p></div>
             <div className={styles.info}>
               <p>{t("sections.contact.address.p1")}</p>
               <p>{t("sections.contact.address.p2")}</p>
               <p>{t("sections.contact.address.p3")}</p>
               <p>{t("sections.contact.address.p4")}</p>
-            </div>
+            </div> */}
           </div>
           <div className={styles.col}>
             <div className={styles.category}>{t("sections.newsletter.title")}</div>

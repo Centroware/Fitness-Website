@@ -12,8 +12,8 @@ const Download = () => {
       <Suspense fallback={<Spinner />}>
         <Post />
         <Blog mainPage />
-        <Review className="section-bg" />
-        <Story />
+        {/* <Review className="section-bg" /> */}
+        {/* <Story /> */}
       </Suspense>
     </>
   );

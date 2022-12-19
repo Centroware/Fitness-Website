@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import cn from "classnames";
-import styles from "./Blog.module.sass";
-import Item from "./Item";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import Spinner from "../Spinner";
-import useBlogs from "./useBlogs";
+import styles from "./Blog.module.sass";
+import Item from "./Item";
+import { GlobalContext } from "../../context/global";
 
 const Blog = ({ mainPage }) => {
     const { t } = useTranslation("features");
-    const { loadMoreBlogs, blogsWithCategories, loading, blogsCount } = useBlogs();
+    const { loadMoreBlogs, blogsWithCategories, loading, blogsCount } = useContext(GlobalContext);
 
     const [activeIndex, setActiveIndex] = useState(0);
 

@@ -93,7 +93,7 @@ const SingleArticle = () => {
     };
 
     useEffect(() => {
-        // getSingleArticle();
+        getSingleArticle();
     }, []);
 
     article.updated_at = getFormattedDate(article.updated_at);

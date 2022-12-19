@@ -17,25 +17,27 @@ import Privacy from "./screens/Privacy";
 import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
 import Spinner from "./components/Spinner";
+import GlobalProvider from "./context/global";
 
 function App() {
   const { i18n } = useTranslation();
 
   return (
-    <div style={{ direction: i18n.resolvedLanguage !== "ar" ? "ltr" : "rtl", fontFamily: i18n.resolvedLanguage !== "ar" ? "SFProDisplay-Bold, sans-serif" : "ArabicUIText" }}>
-      <Router>
-        {/* <ErrorBoundary> */}
-        <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (
-              <Page>
-                <Features />
-              </Page>
-            )}
-          />
-          {/* <Route
+    <GlobalProvider>
+      <div style={{ direction: i18n.resolvedLanguage !== "ar" ? "ltr" : "rtl", fontFamily: i18n.resolvedLanguage !== "ar" ? "SFProDisplay-Bold, sans-serif" : "ArabicUIText" }}>
+        <Router>
+          {/* <ErrorBoundary> */}
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <Page>
+                  <Features />
+                </Page>
+              )}
+            />
+            {/* <Route
             exact
             path="/download"
             render={() => (
@@ -44,56 +46,56 @@ function App() {
               </Page>
             )}
           /> */}
-          <Route
-            exact
-            path="/lifestyle"
-            render={() => (
-              <Page>
-                <Lifestyle />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/article"
-            render={() => (
-              <Page>
-                <Article />
-              </Page>
-            )}
-          />
-          <Route
-            exact
-            path="/article/:slug"
-            render={() => (
-              <Page>
-                <Suspense fallback={<Spinner />}>
-                  <SingleArticle />
-                </Suspense>
-              </Page>
-            )}
-          />
+            <Route
+              exact
+              path="/lifestyle"
+              render={() => (
+                <Page>
+                  <Lifestyle />
+                </Page>
+              )}
+            />
+            <Route
+              exact
+              path="/article"
+              render={() => (
+                <Page>
+                  <Article />
+                </Page>
+              )}
+            />
+            <Route
+              exact
+              path="/article/:slug"
+              render={() => (
+                <Page>
+                  <Suspense fallback={<Spinner />}>
+                    <SingleArticle />
+                  </Suspense>
+                </Page>
+              )}
+            />
 
-          <Route
-            exact
-            path="/pricing"
-            render={() => (
-              <Page>
-                <Pricing />
-              </Page>
-            )}
-          />
+            <Route
+              exact
+              path="/pricing"
+              render={() => (
+                <Page>
+                  <Pricing />
+                </Page>
+              )}
+            />
 
-          <Route
-            exact
-            path="/privacy"
-            render={() => (
-              <Page>
-                <Privacy />
-              </Page>
-            )}
-          />
-          {/* 
+            <Route
+              exact
+              path="/privacy"
+              render={() => (
+                <Page>
+                  <Privacy />
+                </Page>
+              )}
+            />
+            {/* 
         <Route
           exact
           path="/features"
@@ -141,10 +143,11 @@ function App() {
           )}
         />
           */}
-        </Switch>
-        {/* </ErrorBoundary> */}
-      </Router>
-    </div>
+          </Switch>
+          {/* </ErrorBoundary> */}
+        </Router>
+      </div>
+    </GlobalProvider>
   );
 }
 

@@ -201,7 +201,8 @@ const Hero = () => {
           {t("desc")}
         </div>
         <History />
-        <div className={styles.nav}>
+
+        {/* <div className={styles.nav}>
           {items.map((x, index) => (
             <button
               className={cn(styles.btn, {
@@ -225,7 +226,8 @@ const Hero = () => {
           <button className={cn("button-stroke button-small", styles.button)}>
             Load more
           </button>
-        </div>
+        </div> */}
+
       </div>
     </div>
   );
