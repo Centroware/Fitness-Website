@@ -15,6 +15,10 @@
       "title": "newsletter",
       "desc": " Subscribe our newsletter to get more free design course and resource.",
       "email_placeholder": "Enter your email"
+    },
+    "subscription": {
+      "subscribed": "Subscribed",
+      "invalid_email": "Invalid Email"
     }
   },
   "copyright": "Copyright © 2022 Miran. All rights reserved",

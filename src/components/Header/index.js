@@ -6,6 +6,7 @@ import DropdownMenu from "./DropdownMenu";
 import Icon from "../Icon";
 import Image from "../Image";
 import { useTranslation } from "react-i18next";
+import { APP_LINK } from "../../config";
 
 const navLinks = [
   // {
@@ -24,7 +25,7 @@ const navLinks = [
   {
     title_en: "Download",
     title_ar: "تنزيل التطبيق",
-    href: "https://miranapp.app.link/Eoqt0wlsJub",
+    href: APP_LINK,
   },
   // {
   //   title: "Class",
@@ -231,7 +232,7 @@ const Headers = () => {
             </div>
             <a
               className={cn("button-stroke button-small", styles.button)}
-              href="https://miranapp.app.link/Eoqt0wlsJub"
+              href={APP_LINK}
               target="_blank"
               rel="noreferrer"
             >
@@ -241,7 +242,7 @@ const Headers = () => {
         </div>
         <a
           className={cn("button-stroke button-small", styles.button)}
-          href="https://miranapp.app.link/Eoqt0wlsJub"
+          href={APP_LINK}
           target="_blank"
           rel="noreferrer"
         >

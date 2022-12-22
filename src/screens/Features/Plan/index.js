@@ -4,6 +4,7 @@ import styles from "./Plan.module.sass";
 import Icon from "../../../components/Icon";
 import { useTranslation } from "react-i18next";
 import usePlans from "./usePlans";
+import { APP_LINK } from "../../../config";
 
 const options = [
   {
@@ -136,7 +137,7 @@ const Plan = () => {
                       </div>
                     ))}
                   </div>
-                  <a target="_blank" rel="noreferrer" href="https://miranapp.app.link/Eoqt0wlsJub">
+                  <a target="_blank" rel="noreferrer" href={APP_LINK}>
                     <button
                       className={cn("button", styles.button)}
                     >

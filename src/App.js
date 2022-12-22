@@ -18,6 +18,7 @@ import { useTranslation } from "react-i18next";
 import { Suspense } from "react";
 import Spinner from "./components/Spinner";
 import GlobalProvider from "./context/global";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const { i18n } = useTranslation();
@@ -25,6 +26,7 @@ function App() {
   return (
     <GlobalProvider>
       <div style={{ direction: i18n.resolvedLanguage !== "ar" ? "ltr" : "rtl", fontFamily: i18n.resolvedLanguage !== "ar" ? "SFProDisplay-Bold, sans-serif" : "ArabicUIText" }}>
+        <Toaster />
         <Router>
           {/* <ErrorBoundary> */}
           <Switch>

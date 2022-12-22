@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import styles from "./Intro.module.sass";
 import ScrollParallax from "../ScrollParallax";
 import { useTranslation } from "react-i18next";
+import { APP_LINK } from "../../config";
 
 const Intro = () => {
   const { i18n, t } = useTranslation("features");
@@ -40,7 +41,7 @@ const Intro = () => {
           <div className={styles.text}>
             {t("intro.desc")}
           </div>
-          <a href="https://miranapp.app.link/Eoqt0wlsJub" rel="noreferrer" target="_blank" className={cn("button", styles.button)}>
+          <a href={APP_LINK} rel="noreferrer" target="_blank" className={cn("button", styles.button)}>
             {t("intro.start_trial")}
           </a>
         </div>

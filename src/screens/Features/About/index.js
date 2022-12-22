@@ -58,7 +58,7 @@ const About = () => {
                     className={styles.number}
                     style={{ backgroundColor: x.color }}
                   >
-                    00
+                    {/* 00 */}
                   </div>
                   <div className={styles.subtitle}>
                     {i18n.resolvedLanguage !== "ar" ? x.title_en : x.title_ar}

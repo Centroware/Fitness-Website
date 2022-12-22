@@ -59,9 +59,9 @@ const Item = ({ item, index }) => {
                 </p>
               }
             </div>
-            <button className={cn("button-stroke button-small", styles.button)}>
+            {/* <button className={cn("button-stroke button-small", styles.button)}>
               {t("faq.q.learn_more")}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

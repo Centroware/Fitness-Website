@@ -5,6 +5,7 @@ import ScrollButton from "../../../components/ScrollButton";
 import Image from "../../../components/Image";
 import ScrollParallax from "../../../components/ScrollParallax";
 import { useTranslation } from "react-i18next";
+import { APP_LINK } from "../../../config";
 
 const Hero = ({ scrollToRef }) => {
   const { i18n, t } = useTranslation("features");
@@ -25,13 +26,13 @@ const Hero = ({ scrollToRef }) => {
           <div className={styles.btns}>
             <a
               className={cn("button", i18n.resolvedLanguage !== "ar" ? styles.button : styles.buttonRtl)} to="/download"
-              href="https://miranapp.app.link/Eoqt0wlsJub"
+              href={APP_LINK}
               rel="noreferrer" target="_blank">
               {t("hero.donwload_app")}
             </a>
             <a
               className={cn("button-stroke", styles.button)}
-              href="https://miranapp.app.link/Eoqt0wlsJub" rel="noreferrer" target="_blank"             >
+              href={APP_LINK} rel="noreferrer" target="_blank">
               {t("hero.book_class")}
             </a>
           </div>

@@ -7,6 +7,7 @@ import Subscription from "../Subscription";
 import Theme from "../Theme";
 import Icon from "../Icon";
 import Image from "../Image";
+import { APP_LINK } from "../../config";
 
 const menu = [
   {
@@ -34,7 +35,7 @@ const menu = [
   {
     title_en: "Download",
     title_ar: "تنزيل التطبيق",
-    href: "https://miranapp.app.link/Eoqt0wlsJub",
+    href: APP_LINK,
   },
 ];
 

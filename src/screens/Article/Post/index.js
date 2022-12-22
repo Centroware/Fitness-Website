@@ -4,21 +4,18 @@ import { useTranslation } from "react-i18next";
 import { AiOutlineCheck } from "react-icons/ai";
 import styles from "./Post.module.sass";
 import Icon from "../../../components/Icon";
+import { toast } from "react-hot-toast";
 
 const Post = () => {
   const { i18n, t } = useTranslation("article");
-  const [copied, setCopied] = useState(false);
 
   function shareStory() {
     navigator.clipboard.writeText(window.location.href);
-    setCopied(true);
-    setTimeout(() => {
-      setCopied(false);
-    }, 1500);
+    toast.success(t("copied"));
   }
+
   return (
     <div className={cn("section", styles.section)}>
-      <div className={`fixed top-7 transition-all delay-300 ${copied ? "left-7" : "-left-60"} flex gap-3 items-center z-[10]  bg-[#4c914cea] text-white p-3 rounded-lg font-medium text-xl w-fit`}><AiOutlineCheck size={24} /> {t("copied")}</div>
       <div className={cn("container", styles.container)}>
         <div className={styles.head}>
           <h1 className={cn("h1", i18n.resolvedLanguage !== "ar" ? styles.title : styles.titleRtl)}>
