@@ -36,6 +36,10 @@
     justify-content: center
     align-items: center
     svg
-        fill: $neutrals8
+        fill: $neutrals2
+        +dark
+            fill: $neutrals8
     &:hover
-        background: darken($red, 10)
+        background: $neutrals6
+        +dark
+            background: darken($red, 10)
